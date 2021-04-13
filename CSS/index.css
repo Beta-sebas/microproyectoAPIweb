@@ -1,0 +1,111 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.contenedor{
+  display: flex;
+  flex-flow: row wrap;
+  font-weight: bold;
+
+}
+.logo, .nav, .informacion, .imagen {
+  width: 100%;
+}
+.login{
+  display: flex;
+  border: 2px solid;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+}
+
+.login form, fieldset{
+  width: 100%;
+}
+.login form legend {
+  font-size: 20px;
+  text-align: center;
+}
+
+.barras{
+  width: 90%;
+  font-size: 16px;
+}
+.boton{
+  width: 40%;
+  font-size: 15px;
+  background-color: rgb(217, 217, 217);
+}
+.caja{
+  width: 6%;
+  text-align: left;
+}
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.informacion p {
+  text-align: justify;
+}
+.informacion h2{
+  text-align: center;
+}
+img {
+
+  max-width: 100%;
+}
+
+@media (min-width: 600px) {
+   .informacion, .imagen, .login{
+    width: 50%;
+  }
+  .logo{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .nav {
+    display: flex;
+    order: -1;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+  }
+  .boton{
+    width: 22%;
+    font-size: 10px;
+  }
+  .login span {
+    font-size: 9px;
+  }
+  .barras{
+    width: 25%;
+    font-size: 13px;
+  }
+  .login {order: 0;}
+  .logo{order: 1;}
+  .imagen{order:2;}
+  .informacion {order:2;}
+}
+@media (min-width: 900px) {
+  .contenedor {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .boton{
+    width: 22%;
+    font-size: 15px;
+  }
+  .login span {
+    font-size: 12px;
+  }
+  .barras{
+    width: 26%;
+    font-size: 17px;
+  }
+}

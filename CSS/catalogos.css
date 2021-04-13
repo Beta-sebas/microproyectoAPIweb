@@ -1,0 +1,130 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+
+.contenedor{
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  font-weight: bold;
+  background-color: #e4e4e4;
+  box-shadow: rgba(0, 0, 0, 0.5) 20px 20px 10px;
+}
+
+.aqui{
+  color: rgb(147, 136, 154);
+}
+
+.titulopage, .buscarnuevo{
+  width: 100%;
+  text-align: center;
+  margin: 15px;
+}
+
+.nav{
+  width: 100%;
+}
+
+.contenedorSecundario{
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.botonescatalogos{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.botones{
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.contenedorInformacion{
+  border: 1px solid black;
+  flex-direction: column;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.itemInformacion{
+  display: flex;
+  flex-flow: row wrap;
+  padding: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #626262;
+}
+
+.parteIzquierdaitemInformacion{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.titulo{
+  width: 50%;
+  text-align: left;
+  padding-left: 4px;
+
+}
+.cantidad{
+  width: 50%;
+  padding-right: 4px;
+  text-align: right;
+  border-left: 1px solid rgb(184, 184, 184);
+}
+
+.descripcion{
+  width: 100%;
+}
+
+
+.parteDerechaitemInformacion{
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.botonModificar, .botonEliminar{
+  width: 50%;
+  text-align: center;
+}
+img {
+  max-width: 100%;
+}
+@media (min-width: 600px) {
+
+  .contenedor{
+    max-width: 1000px;
+  }
+  .parteIzquierdaitemInformacion{
+    width: 80%;
+  }
+
+  .parteDerechaitemInformacion{
+    width: 20%;
+  }
+
+  .nav{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  .logo1{
+    width: 25%;
+  }
+  .enlaces{
+    width: 75%;
+  }
+
+}

@@ -1,0 +1,136 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+
+.contenedor{
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  font-weight: bold;
+  background-color: #e4e4e4;
+  box-shadow: rgba(0, 0, 0, 0.5) 20px 20px 10px;
+}
+
+.aqui{
+  color: rgb(147, 136, 154);
+}
+.nav, .titulopage, .parteIzquierda, .parteDerecha, .navegacionInfoActualizada, .itemInformacion, .descripcion{
+  width: 100%;
+}
+
+.parteIzquierda{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.navegacionInfoActualizada{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content:flex-start;
+}
+
+.itemsNavegacion{
+  padding: 3px;
+  text-align: center;
+  background-color: rgb(189, 189, 189);
+  color: black;
+}
+
+.itemsNavegacion:hover{
+  background-color: rgb(83, 83, 83);
+  color: white;
+}
+.contenedorInformacion{
+  border: 1px solid black;
+  flex-direction: column;
+  font-size: 13px;
+}
+
+.itemInformacion{
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.titulo{
+  width: 50%;
+  text-align: left;
+  padding-left: 4px;
+
+}
+.cantidad{
+  width: 50%;
+  padding-right: 4px;
+  text-align: right;
+  border-left: 1px solid rgb(184, 184, 184);
+}
+
+.descripcion{
+  width: 100%;
+}
+
+.parteDerecha{
+  display: flex;
+  flex-flow: column wrap;
+  text-align:center;
+  padding: 4px;
+}
+.parteDerecha table, tr, th, td {
+  border: 1px solid;
+  width: 100%;
+}
+.abastecer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.textoabastecer{
+    width: 100%;
+}
+.botonabastecer input{
+  margin-top: 10%;
+  background: rgb(189, 189, 189);
+
+}
+.botonabastecer input:hover{
+  background-color: rgb(83, 83, 83);
+  color: white;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (min-width: 600px) {
+
+.contenedor{
+  max-width: 1000px;
+}
+
+  .parteDerecha, .parteIzquierda{
+    width: 50%;
+  }
+  .parteDerecha{
+    justify-content: center;
+    align-content: center;
+  }
+  .botonabastecer{
+    width: 80%;
+    font-size: 14px;
+  }
+
+  .nav{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  .logo1{
+    width: 25%;
+  }
+  .enlaces{
+    width: 75%;
+  }
+}
