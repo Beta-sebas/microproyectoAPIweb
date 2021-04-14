@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+  <html lang="es">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <!--<meta name="description" content="un taller a solucionar">-->
+  <title>Catálogos : Categoria </title>
+  <link rel="stylesheet" href="../CSS/operacion.css">
+  <!--<link rel="shortcut icon" type="image/x-icon" href="imagenes\favicon.ico">-->
+  <!-- <link rel="shortcut icon" href="http://www.wikipedia.org/favicon.ico" /> -->
+  </head>
+  <body>
+    <div class="contenedor">
+
+      <div class="nav">
+        <div class="logo1">
+            <img src="../imagenes\logo.png" alt="logo ACME" title="logo ACME">
+        </div>
+        <div class="enlaces">
+          <a href="home.html">Home</a>
+          <a href="catalogos_categorias.html">Catalogos</a>
+          <a href="operacion_entrada.html">Operación Entrada</a>
+          <span class="aqui" href="#">Operación Salida</span>
+          <a href="#">Reportes</a>
+          <a href="#">Ordenes de trabajo</a>
+        </div>
+      </div>
+
+      <div class="titulopage">
+        <h2>Operación de salida</h2>
+      </div>
+
+      <div class="contenedorInformacion">
+        <div class="registrarinfosup">
+          <div class="tablasup">
+            <table>
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Cantidad</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Producto 1</td>
+                  <td>2</td>
+                  <td><input type="button" name="eliminar" value="Eliminar"></td>
+                </tr>
+                <tr>
+                  <td>Producto 2</td>
+                  <td>3</td>
+                  <td><input type="button" name="eliminar" value="Eliminar"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="registrarinfomed">
+          <div class="titulomed">
+            <h3>Producto</h3>
+          </div>
+          <div class="desplegable1">
+            <select class="producto" name="producto">
+              <option value="" selected="selected"> - selecciona un producto -</option>
+              <option value="1">producto 1</option>
+              <option value="2">producto 2</option>
+              <option value="3">producto 3</option>
+              <option value="4">producto 4</option>
+            </select>
+          </div>
+          <div>
+            <h3>Cantidad</h3>
+          </div>
+          <div>
+            <input type="text" name="cantidadproducto" value="" placeholder="Ingrese la cantidad">
+          </div>
+          <div class="botonmed">
+            <input type="button" name="agregarlista" value="Agregar Lista">
+          </div>
+        </div>
+          <div class="registrarinfoinf">
+            <div>
+              <h3>Seleccionar cliente</h3>
+            </div>
+            <div>
+              <select class="cliente" name="cliente">
+                <option value="" selected="selected"> - selecciona un cliente -</option>
+                <option value="1">cliente 1</option>
+                <option value="2">cliente 2</option>
+                <option value="3">cliente 3</option>
+                <option value="4">cliente 4</option>
+              </select>
+            </div>
+            <div class="botonmed">
+              <input type="button" name="imprimir" value="Imprimir cotización">
+            </div>
+          </div>
+      </div>
+
+      <div class="contenedorsegundario">
+        <div class="titulosegundario">
+          <h3>Método de pago</h3>
+        </div>
+        <div class="listametodos">
+          <select class="metodopago" name="metodopago">
+            <option value="" selected="selected"> - Opciones -</option>
+            <option value="1">Método 1</option>
+            <option value="2">Método 2</option>
+            <option value="3">Método 3</option>
+            <option value="4">Método 4</option>
+          </select>
+        </div>
+        <div class="titulosegundario2">
+          <h3>Responsable</h3>
+        </div>
+        <div class="listaresponsables">
+          <select class="responsable" name="responsable">
+            <option value="" selected="selected"> - Opciones -</option>
+            <option value="1">Responsable 1</option>
+            <option value="2">Responsable 2</option>
+            <option value="3">Responsable 3</option>
+            <option value="4">Responsable 4</option>
+          </select>
+        </div>
+        <div class="botones">
+          <input type="button" name="guardarr" value="Guardar">
+          <input type="button" name="cancelar" value="Cancelar">
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </body>
+</html>

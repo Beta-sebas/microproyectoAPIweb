@@ -1,0 +1,58 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.contenedor{
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  font-weight: bold;
+  background-color: #e4e4e4;
+  box-shadow: rgba(0, 0, 0, 0.5) 20px 20px 10px;
+}
+.aqui{
+  color: rgb(147, 136, 154);
+}
+.nav, .titulopage, .contenedorInformacion, .contenedorsegundario{
+  width: 100%;
+}
+img {
+  max-width: 100%;
+}
+.titulopage{
+  text-align: center;
+  margin-bottom: 10px;
+}
+.contenedorInformacion{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  padding: 0px 15px;
+}
+.registrarinfosup, .registrarinfomed, .registrarinfoinf{
+  display: flex;
+  width: 100%;
+  flex-flow: column wrap;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.registrarinfosup div{
+  margin-top: 5px;
+}
+.registrarinfomed div{
+  margin-top: 5px;
+}
+.registrarinfoinf div{
+  margin-top: 5px;
+}
+
+.contenedorsegundario{
+  padding: 0px 15px;
+  margin-bottom: 15px;
+  font-size: 13px;
+}
+.contenedorsegundario div{
+  margin-top: 5px;
+}
