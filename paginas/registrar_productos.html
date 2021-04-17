@@ -20,10 +20,10 @@
         <div class="enlaces">
           <a href="home.html">Home</a>
           <span class="aqui" href="#">Catálogos</span>
-          <a href="#">Operación Entrada</a>
-          <a href="#">Operación Salida</a>
-          <a href="#">Reportes</a>
-          <a href="#">Ordenes de trabajo</a>
+          <a href="operacion_entrada.html">Operación Entrada</a>
+          <a href="operacion_salida.html">Operación Salida</a>
+          <a href="reportes.html">Reportes</a>
+          <a href="ordenes_trabajo.html">Ordenes de trabajo</a>
         </div>
       </div>
 
@@ -33,24 +33,24 @@
 
       <div class="contenedorInformacion">
         <div class="registrarinfosup">
-          <div>
+          <div class="labels">
             <h3>Código</h3>
           </div>
-          <div>
+          <div class="llenables">
             <input type="text" name="codigo" value="" placeholder="Digite Información">
           </div>
-          <div>
+          <div class="labels">
             <h3>Nombre de producto</h3>
           </div>
-          <div>
+          <div class="llenables">
             <input type="text" name="nombreproducto" value="" placeholder="Digite Información">
           </div>
         </div>
         <div class="registrarinfomed">
-          <div class="titulomed">
+          <div class="labels titulomed">
             <h3>Categoria</h3>
           </div>
-          <div class="desplegable1">
+          <div class="llenables desplegable1">
             <select class="categoria" name="categoria">
               <option value="" selected="selected"> - selecciona -</option>
               <option value="1">categoria 1</option>
@@ -59,10 +59,10 @@
               <option value="4">categoria 4</option>
             </select>
           </div>
-          <div class="titulovitrina">
+          <div class="labels titulovitrina">
             <h3>Ubicación(Vitrina/Bodega)</h3>
           </div>
-          <div class="desplegable2">
+          <div class="llenables desplegable2">
             <select class="ubicacion" name="ubicacion">
               <option value="1" selected="selected">Bodega</option>
               <option value="2">Vitrina</option>
@@ -70,25 +70,58 @@
           </div>
         </div>
           <div class="registrarinfoinf">
-            <div>
+            <div class="labels">
               <h3>Descripción</h3>
             </div>
-            <div>
+            <div class="llenables">
               <input type="text" name="descripcion" value="" placeholder="Digite Información">
             </div>
-            <div>
+            <div class="labels">
               <h3>Precio de entrada</h3>
             </div>
-            <div>
-              <input type="text" name="precio" value="" placeholder="Digite Información">
+            <div class="llenables">
+              <input type="text" name="precioentrada" value="" placeholder="Digite Información">
+            </div>
+            <div class="labels">
+              <h3>Precio de salida</h3>
+            </div>
+            <div class="llenables">
+              <input type="text" name="preciosalida" value="" placeholder="Digite Información">
+            </div>
+            <div class="labels">
+              <h3>Unidad</h3>
+            </div>
+            <div class="llenables">
+              <input type="text" name="unidad" value="" placeholder="Digite Información">
+            </div>
+            <div class="labels">
+              <h3>Presentación</h3>
+            </div>
+            <div class="llenables">
+              <input type="text" name="presentacion" value="" placeholder="Digite Información">
+            </div>
+            <div class="labels">
+              <h3>Cantidad disponible en el inventario</h3>
+            </div>
+            <div class="llenables">
+              <input type="text" name="presentacion" value="" placeholder="Digite Información">
+            </div>
+            <div class="labels">
+              <h3>Cantidad mínima disponible en el inventario</h3>
+            </div>
+            <div class="llenables">
+              <input type="text" name="presentacion" value="" placeholder="Digite Información">
+            </div>
+            <div class="imagenProducto">
+                <img src="../imagenes\bolsa.png" alt="Imagen Producto" title="Imagen Producto">
             </div>
           </div>
       </div>
 
       <div class="contenedorsegundario">
         <div class="botones">
-          <input type="button" name="guardarr" value="Guardar">
-          <input type="button" name="cancelar" value="Cancelar">
+          <a href="catalogos_categorias.html"><input type="button" name="guardar" value="Guardar"></a>
+          <a href="catalogos_categorias.html"><input type="button" name="cancelar" value="Cancelar"></a>
         </div>
 
       </div>

@@ -21,6 +21,13 @@
 img {
   max-width: 100%;
 }
+
+.imagenProducto{
+  width: 50%;
+  max-width: 150px;
+  margin: auto;
+}
+
 .titulopage{
   text-align: center;
   margin-bottom: 10px;
@@ -44,6 +51,8 @@ img {
 .registrarinfomed div{
   margin-top: 5px;
 }
+
+
 .registrarinfoinf div{
   margin-top: 5px;
 }
@@ -52,4 +61,41 @@ img {
   display: flex;
   justify-content: space-around;
   margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.tituloinfo{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 600px) {
+
+  .contenedor{
+    max-width: 1000px;
+  }
+
+  .llenables, .labels{
+    width: 50%;
+  }
+
+ .registrarinfosup, .registrarinfomed, .registrarinfoinf{
+   width:80%;
+   margin: auto;
+   flex-flow: row wrap;
+ }
+
+ .nav{
+   display: flex;
+   flex-flow: row wrap;
+   align-items: center;
+ }
+ .logo1{
+   width: 25%;
+ }
+ .enlaces{
+   width: 75%;
+ }
+
+
 }

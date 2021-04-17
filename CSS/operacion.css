@@ -25,11 +25,25 @@ img {
   text-align: center;
   margin-bottom: 10px;
 }
+table{
+  background-color: rgb(125, 185, 241);
+  width: 100%;
+  margin: auto;
+}
+
+td{
+  margin:0px;
+  background-color: rgb(173, 215, 255);
+  text-align: center;
+}
+
 .contenedorInformacion{
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   padding: 0px 15px;
+  width: 100%;
+  margin: auto;
 }
 .registrarinfosup, .registrarinfomed, .registrarinfoinf{
   display: flex;
@@ -44,6 +58,12 @@ img {
 .registrarinfomed div{
   margin-top: 5px;
 }
+
+.parteIzq{
+  width: 100%;
+}
+
+
 .registrarinfoinf div{
   margin-top: 5px;
 }
@@ -55,4 +75,104 @@ img {
 }
 .contenedorsegundario div{
   margin-top: 5px;
+}
+
+@media (min-width: 550px) {
+
+  .contenedor{
+    max-width: 1000px;
+  }
+
+.registrarinfosup{
+  width: 80%;
+  margin: auto;
+  }
+  table{
+    width: 100%;
+  }
+  .registrarinfomed{
+    width: 50%;
+    flex-flow: row wrap;
+    margin: auto;
+  }
+
+ .parteIzq{
+   width: 60%;
+   display: flex;
+   flex-flow: row wrap;
+ }
+
+
+ .ParteDer{
+   width: 40%;
+   margin-left: 5%;
+   padding-left: 5%;
+   padding-top:3%;
+ }
+
+ .registrarinfoinf{
+   width: 50%;
+   flex-flow: row wrap;
+   margin: auto;
+   margin-top: 20px;
+ }
+
+ .labels{
+   width: 30%;
+ }
+
+ .llenables{
+   width: 50%;
+   padding-left: 10%;
+ }
+
+ .botoninf{
+   width: 100%;
+   padding-top:15px;
+   padding-left:40%;
+
+ }
+
+ .contenedorsegundario{
+   padding: 0px;
+   width: 50%;
+   display: flex;
+   flex-flow: row wrap;
+   margin: auto;
+
+ }
+ .InfoPago{
+   padding-top: 2%;
+   padding-left: 2%;
+   display: flex;
+   flex-flow: row wrap;
+ }
+
+
+ .botonespago{
+   width: 100%;
+   padding-left: 30%;
+   padding-top: 1%;
+   margin-bottom: 10px;
+ }
+
+ .nav{
+   display: flex;
+   flex-flow: row wrap;
+   align-items: center;
+ }
+ .logo1{
+   width: 25%;
+ }
+ .enlaces{
+   width: 75%;
+ }
+
+
+}
+
+@media (min-width: 840px){
+  .ParteDer{
+    width: 30%;
+  }
 }

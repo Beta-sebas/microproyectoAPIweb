@@ -37,7 +37,24 @@
 
 }
 
-.botonescatalogos{
+.filtroInicial, .filtroFinal{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.desplegable1 select{
+  width: 100%;
+  display: flex;
+}
+
+.botonConsultar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.opcionesDeFiltro{
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -50,6 +67,10 @@
   margin-bottom: 20px;
 }
 
+.contenedor1{
+  margin-top: 20px;
+}
+
 .itemInformacion{
   display: flex;
   flex-flow: row wrap;
@@ -60,24 +81,24 @@
 .parteIzquierdaitemInformacion{
   display: flex;
   flex-flow: row wrap;
-  width: 80%;
-  border-bottom: 1px solid rgb(184, 184, 184);
-}
-.parteDerechaitemInformacion{
-  width: 20%;
-  margin-top: 5%;
-}
-.parteDerechaitemInformacion input{
   width: 100%;
-}
-.titulo{
-  width: 50%;
-  text-align: left;
-  padding-left: 4px;
 
 }
+
+.titulo{
+  width: 55%;
+  text-align: left;
+  padding-left: 4px;
+}
+
+.titulosmedio{
+  width: 100%;
+  text-align: left;
+  padding-left: 4px;
+}
+
 .tituloproceso{
-  width: 50%;
+  width: 45%;
   padding-right: 4px;
   text-align: left;
 }
@@ -93,21 +114,10 @@ img {
   .contenedor{
     max-width: 1000px;
   }
-  .parteIzquierdaitemInformacion{
-    width: 80%;
-    display: flex;
-    flex-flow: row wrap;
-  }
-  .parteDerechaitemInformacion{
 
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .barra{
-    width: 70%;
+  .contenedorSecundario{
+    width: 60%;
+    margin: auto;
   }
 
   .nav{

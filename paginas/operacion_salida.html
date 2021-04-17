@@ -22,8 +22,8 @@
           <a href="catalogos_categorias.html">Catalogos</a>
           <a href="operacion_entrada.html">Operación Entrada</a>
           <span class="aqui" href="#">Operación Salida</span>
-          <a href="#">Reportes</a>
-          <a href="#">Ordenes de trabajo</a>
+          <a href="reportes.html">Reportes</a>
+          <a href="ordenes_trabajo.html">Ordenes de trabajo</a>
         </div>
       </div>
 
@@ -39,7 +39,7 @@
                 <tr>
                   <th>Producto</th>
                   <th>Cantidad</th>
-                  <th></th>
+                  <th>Eliminar de la lista</th>
                 </tr>
               </thead>
               <tbody>
@@ -58,33 +58,37 @@
           </div>
         </div>
         <div class="registrarinfomed">
-          <div class="titulomed">
-            <h3>Producto</h3>
+          <div class="parteIzq">
+              <div class="labels titulomed">
+                <h3>Producto</h3>
+              </div>
+              <div class="llenables desplegable1">
+                <select class="producto" name="producto">
+                  <option value="" selected="selected"> - selecciona un producto -</option>
+                  <option value="1">producto 1</option>
+                  <option value="2">producto 2</option>
+                  <option value="3">producto 3</option>
+                  <option value="4">producto 4</option>
+                </select>
+              </div>
+              <div class="labels">
+                <h3>Cantidad</h3>
+              </div>
+              <div class="llenables">
+                <input type="text" name="cantidadproducto" value="" placeholder="Ingrese la cantidad">
+              </div>
           </div>
-          <div class="desplegable1">
-            <select class="producto" name="producto">
-              <option value="" selected="selected"> - selecciona un producto -</option>
-              <option value="1">producto 1</option>
-              <option value="2">producto 2</option>
-              <option value="3">producto 3</option>
-              <option value="4">producto 4</option>
-            </select>
+          <div class="ParteDer botonmed">
+            <input type="button" name="agregarlista" value="Agregar A La Lista">
           </div>
-          <div>
-            <h3>Cantidad</h3>
-          </div>
-          <div>
-            <input type="text" name="cantidadproducto" value="" placeholder="Ingrese la cantidad">
-          </div>
-          <div class="botonmed">
-            <input type="button" name="agregarlista" value="Agregar Lista">
-          </div>
+
         </div>
+
           <div class="registrarinfoinf">
-            <div>
+            <div class="labels">
               <h3>Seleccionar cliente</h3>
             </div>
-            <div>
+            <div class="llenables">
               <select class="cliente" name="cliente">
                 <option value="" selected="selected"> - selecciona un cliente -</option>
                 <option value="1">cliente 1</option>
@@ -93,17 +97,18 @@
                 <option value="4">cliente 4</option>
               </select>
             </div>
-            <div class="botonmed">
+            <div class="botoninf">
               <input type="button" name="imprimir" value="Imprimir cotización">
             </div>
           </div>
       </div>
 
       <div class="contenedorsegundario">
-        <div class="titulosegundario">
+        <div class="InfoPago">
+        <div class="labels titulosegundario">
           <h3>Método de pago</h3>
         </div>
-        <div class="listametodos">
+        <div class="llenables listametodos">
           <select class="metodopago" name="metodopago">
             <option value="" selected="selected"> - Opciones -</option>
             <option value="1">Método 1</option>
@@ -112,10 +117,10 @@
             <option value="4">Método 4</option>
           </select>
         </div>
-        <div class="titulosegundario2">
+        <div class="labels titulosegundario2">
           <h3>Responsable</h3>
         </div>
-        <div class="listaresponsables">
+        <div class="llenables listaresponsables">
           <select class="responsable" name="responsable">
             <option value="" selected="selected"> - Opciones -</option>
             <option value="1">Responsable 1</option>
@@ -124,10 +129,12 @@
             <option value="4">Responsable 4</option>
           </select>
         </div>
-        <div class="botones">
-          <input type="button" name="guardarr" value="Guardar">
-          <input type="button" name="cancelar" value="Cancelar">
+      </div>
+        <div class="botonespago">
+          <a href="home.html"><input type="button" name="guardar" value="Generar orden de trabajo"></a>
+          <a href="home.html"><input type="button" name="cancelar" value="Cancelar"></a>
         </div>
+
 
       </div>
 
