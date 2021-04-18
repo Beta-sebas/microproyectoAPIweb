@@ -4,6 +4,13 @@
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+
+body{
+  font-family: sans-serif;
+  background-color: rgb(45, 65, 92);
+}
+
 .contenedor{
   margin: auto;
   display: flex;
@@ -11,13 +18,77 @@
   font-weight: bold;
   background-color: #e4e4e4;
   box-shadow: rgba(0, 0, 0, 0.5) 20px 20px 10px;
+  border-radius: 20px;
 }
-.aqui{
-  color: rgb(147, 136, 154);
-}
+
 .nav, .titulopage, .contenedorInformacion, .contenedorsegundario{
   width: 100%;
 }
+
+
+/*======================================================*/
+.nav{
+  background-color: rgb(43, 43, 43);
+  margin-bottom: 80px;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.nav .logo1 img{
+  border-radius: 15px;
+}
+
+.nav .logo1{
+  display: flex;
+  justify-content: center;
+
+}
+
+.enlaces{
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  flex-flow: row wrap;
+  background-color: rgb(43, 43, 43);
+  border-radius: 20px 20px 0px 0px;
+}
+
+.aqui{
+  background-color: rgb(123, 209, 144);
+  text-align: center;
+  width: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.enlaces a{
+  background-color: rgb(43, 43, 43);
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.enlaces a:hover{
+  background-color: rgb(2, 119, 48);
+}
+
+@media (min-width: 400px) {
+  .enlaces a, .enlaces .aqui{
+    width: 33%;
+  }
+
+}
+
+/*======================================================*/
+
+
 img {
   max-width: 100%;
 }
@@ -96,6 +167,19 @@ img {
  .enlaces{
    width: 75%;
  }
+
+ /*======================================================*/
+
+ .enlaces a, .enlaces .aqui{
+   width: auto;
+   padding: 5px;
+ }
+
+ .nav{
+   margin-bottom: 5px;
+ }
+
+ /*======================================================*/
 
 
 }

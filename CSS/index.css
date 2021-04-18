@@ -4,26 +4,70 @@
   box-sizing: border-box;
 }
 
+body{
+  font-family: sans-serif;
+  background-color: rgb(77, 77, 77)
+}
 .contenedor{
   display: flex;
   flex-flow: row wrap;
   font-weight: bold;
+  background-image: url(../imagenes/indexfondo.jpg);
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.5) 20px 20px 10px;
 
 }
 .logo, .nav, .informacion, .imagen {
   width: 100%;
 }
+
+.nav{
+background-color: rgb(43, 43, 43);
+}
+
+.nav a{
+  background-color: rgb(43, 43, 43);
+  width: 33%;
+  height: 100%;
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav a:hover{
+  background-color: rgb(2, 119, 48);
+}
+
+.logo{
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.imagen{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .login{
   display: flex;
-  border: 2px solid;
+
   justify-content: center;
   align-items: stretch;
   width: 100%;
   height: 100%;
+  background-color: rgb(64, 64, 64);
+  padding: 2px;
+
 }
 
-.login form, fieldset{
+fieldset{
+
   width: 100%;
+  border-radius: 5px;
 }
 .login form legend {
   font-size: 20px;
@@ -37,8 +81,18 @@
 .boton{
   width: 40%;
   font-size: 15px;
-  background-color: rgb(217, 217, 217);
+  background-color: rgb(201, 201, 201);
+  text-decoration: none;
+  color: rgb(62, 62, 62);
+  border-radius: 5px;
 }
+
+.boton:hover{
+  background-color: rgb(247, 247, 247);
+
+}
+
+
 .caja{
   width: 6%;
   text-align: left;
@@ -49,6 +103,7 @@
   align-items: center;
 }
 .informacion p {
+  margin-left: 15px;
   text-align: justify;
 }
 .informacion h2{
@@ -57,7 +112,11 @@
 img {
 
   max-width: 100%;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
 }
+
 
 @media (min-width: 600px) {
    .informacion, .imagen, .login{
