@@ -217,6 +217,13 @@ img {
     justify-content: center;
   }
 
+  .enlaces{
+    display: flex;
+    align-items: stretch;
+    flex-flow: row wrap;
+    width: 75%;
+    height: 100%;
+  }
   .contenedor{
     max-width: 1000px;
   }
@@ -249,13 +256,6 @@ img {
     }
     .logo1{
       width: 25%;
-    }
-    .enlaces{
-      display: flex;
-      align-items: stretch;
-      flex-flow: row wrap;
-      width: 75%;
-      height: 100%;
     }
 
     /*======================================================*/
