@@ -9,7 +9,6 @@ body{
   font-family: sans-serif;
   background-color: rgb(45, 65, 92);
 }
-
 .contenedor{
   margin: auto;
   display: flex;
@@ -17,85 +16,93 @@ body{
   font-weight: bold;
   background-color: #e4e4e4;
   box-shadow: rgba(0, 0, 0, 0.5) 20px 20px 10px;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .nav, .titulopage, .contenedorInformacion, .contenedorsegundario{
   width: 100%;
 }
-
-
-/*======================================================*/
+/*Barra de navegación*/
 .nav{
+  display: flex;
+  justify-content: flex-start;
   background-color: rgb(43, 43, 43);
-  margin-bottom: 80px;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 8px 8px 0px 0px;
 }
-
-.nav .logo1 img{
+.enlaces{
+  width: 40%;
+}
+.logo1{
+  width: 60%;
+}
+.logo1 img{
+  max-width: 100%;
+  height: 100%;
   border-radius: 15px;
 }
 
-.nav .logo1{
+.boton-menu{
+  float: right;
   display: flex;
-  justify-content: center;
-
+  justify-content:flex-end;
+  align-items:stretch;
+  width: 70%;
 }
-
-.enlaces{
-  height: 100%;
-  display: flex;
-  align-items: stretch;
-  flex-flow: row wrap;
-  background-color: rgb(43, 43, 43);
-  border-radius: 20px 20px 0px 0px;
+.boton-menu img{
+  max-width: 50%;
+  height: auto;
+  background-color: rgb(171, 171, 171);
 }
-
-.aqui{
-  background-color: rgb(123, 209, 144);
-  text-align: center;
-  width: 100%;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
+.efecto:hover{
+  background-color: rgb(2, 119, 48);
 }
-
-.enlaces a{
+.ocultar-peq{
   background-color: rgb(43, 43, 43);
   text-decoration: none;
   color: white;
   display: flex;
   flex-flow: row wrap;
-  align-items: center;
+  align-items:center;
+  justify-content: flex-start;
+  width: 100%;
+  border-radius: 10px;
+}
+/*------------------Barra de navegación pequeño*/
+.nav-movil{
+  display: flex;
   justify-content: center;
+  width: 100%;
+  /*--------------------Propiedad que oculta el menu */
+  display: none;
+}
+/*----------------------Propiedad para mostrar el menu */
+.mostrar-menu{
+  display: block;
+}
+.enlaces-movil{
+  width: 100%;
+  background-color: rgb(43, 43, 43);;
+}
+.enlaces-movil a, .aqui{
+  background-color: rgb(43, 43, 43);
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-flow: row wrap;
+  align-items:center;
+  justify-content: flex-start;
   width: 100%;
   border-radius: 10px;
 }
 
-.enlaces a:hover{
-  background-color: rgb(2, 119, 48);
+.aqui{
+  background-color: rgb(123, 209, 144);
 }
-
-@media (min-width: 400px) {
-  .enlaces a, .enlaces .aqui{
-    width: 33%;
-  }
-
-  .registrarinfomed, .registrarinfoinf, .InfoPago{
-    padding-left: 10%;
-  }
-
-}
-
 /*======================================================*/
-
-
-
 img {
   max-width: 100%;
 }
+
 .titulopage{
   text-align: center;
   margin-bottom: 10px;
@@ -152,121 +159,139 @@ td{
   margin-top: 5px;
 }
 
-@media (min-width: 550px) {
 
+@media(max-width: 600px){
+  .ocultar-peq{
+      display: none;
+  }
+  .nav{
+    height: 40px;
+  }
+  .enlaces{
+    display:flex;
+    align-items: stretch;
+    justify-content: flex-end;
+  }
+}
+@media (min-width: 601px){
+/*----------------propiedad que oculta el boton menu*/
+  .boton-menu {
+  display: none;
+  }
+/*------------propiedad que oculta el menu a la resolucion*/
+  .nav-movil{
+    display: none;
+  }
+  .nav .logo1{
+    display: flex;
+    justify-content: center;
+  }
+
+  .enlaces{
+    display: flex;
+    align-items: stretch;
+    flex-flow: row wrap;
+    width: 75%;
+    height: 100%;
+  }
   .contenedor{
     max-width: 1000px;
   }
 
-.registrarinfosup{
-  width: 80%;
-  margin: auto;
-  }
-  table{
-    width: 100%;
-  }
-  .registrarinfomed{
-    width: 50%;
-    flex-flow: row wrap;
+  .registrarinfosup{
+    width: 80%;
     margin: auto;
-  }
+    }
+    table{
+      width: 100%;
+    }
+    .registrarinfomed{
+      width: 50%;
+      flex-flow: row wrap;
+      margin: auto;
+    }
 
- .parteIzq{
-   width: 60%;
-   display: flex;
-   flex-flow: row wrap;
- }
-
-
- .ParteDer{
-   width: 40%;
-   margin-left: 5%;
-   padding-left: 5%;
-   padding-top:3%;
- }
-
- .registrarinfoinf{
-   width: 50%;
-   flex-flow: row wrap;
-   margin: auto;
-   margin-top: 20px;
- }
-
- .labels{
-   width: 30%;
- }
-
- .llenables{
-   width: 50%;
-   padding-left: 10%;
- }
-
- .botoninf{
-   width: 100%;
-   padding-top:15px;
-   padding-left:40%;
-
- }
-
- .contenedorsegundario{
-   padding: 0px;
-   width: 50%;
-   display: flex;
-   flex-flow: row wrap;
-   margin: auto;
-
- }
- .InfoPago{
-   padding-top: 2%;
-   padding-left: 2%;
-   display: flex;
-   flex-flow: row wrap;
- }
+   .parteIzq{
+     width: 60%;
+     display: flex;
+     flex-flow: row wrap;
+   }
 
 
- .botonespago{
-   width: 100%;
-   padding-left: 30%;
-   padding-top: 1%;
-   margin-bottom: 10px;
- }
+   .ParteDer{
+     width: 40%;
+     margin-left: 5%;
+     padding-left: 5%;
+     padding-top:3%;
+   }
 
- .nav{
-   display: flex;
-   flex-flow: row wrap;
-   align-items: center;
- }
- .logo1{
-   width: 25%;
- }
- .enlaces{
-   width: 75%;
- }
+   .registrarinfoinf{
+     width: 50%;
+     flex-flow: row wrap;
+     margin: auto;
+     margin-top: 20px;
+   }
+
+   .labels{
+     width: 30%;
+   }
+
+   .llenables{
+     width: 50%;
+     padding-left: 10%;
+   }
+
+   .botoninf{
+     width: 100%;
+     padding-top:15px;
+     padding-left:40%;
+
+   }
+
+   .contenedorsegundario{
+     padding: 0px;
+     width: 50%;
+     display: flex;
+     flex-flow: row wrap;
+     margin: auto;
+
+   }
+   .InfoPago{
+     padding-top: 2%;
+     padding-left: 2%;
+     display: flex;
+     flex-flow: row wrap;
+   }
+
+   .botonespago{
+     width: 100%;
+     padding-left: 30%;
+     padding-top: 1%;
+     margin-bottom: 10px;
+   }
+
+    .titulopage{
+      margin: 20px;
+    }
+
+    .nav{
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+    }
+    .logo1{
+      width: 25%;
+    }
+    /*======================================================*/
+    .enlaces a, .enlaces .aqui{
+      width: auto;
+      padding: 5px;
+    }
+
+    .nav{
+      margin-bottom: 5px;
+    }
 
 
- /*======================================================*/
 
- .enlaces a, .enlaces .aqui{
-   width: auto;
-   padding: 5px;
- }
-
- .nav{
-   margin-bottom: 5px;
- }
-
- .registrarinfomed, .registrarinfoinf, .InfoPago{
-   padding-left: 0px;
- }
- /*======================================================*/
-
-
-
-
-}
-
-@media (min-width: 840px){
-  .ParteDer{
-    width: 30%;
-  }
 }
