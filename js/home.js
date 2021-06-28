@@ -211,5 +211,55 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   categoriaEncontrada.productos.push(computadores1,computadores2);
 
   localStorage.setItem('catalogoCategoriasProductos',JSON.stringify(catalogoCategoriasProductos));
-
 }
+
+var botonClientes = document.getElementById('botonClientes');
+botonClientes.addEventListener("click",imprimirClientes);
+
+function imprimirClientes(){
+  var catalogoClientes= JSON.parse(localStorage.getItem('catalogoClientes'));
+  document.getElementById('contenedorInformacion').innerHTML=" ";
+
+  catalogoClientes.forEach( (clienteActual,indiceActual) => {
+    document.getElementById('contenedorInformacion').innerHTML+=
+    `
+    <div class="itemInformacion">
+            <div class="titulo">
+              <h2>${clienteActual.nombre} ${clienteActual.apellido}</h2>
+            </div>
+            <div class="info descripcion">
+              <p>direccion: ${clienteActual.direccion}</p>
+              <p>email: ${clienteActual.email}</p>
+              <p>telefono: ${clienteActual.telefono}</p>
+            </div>
+      </div>
+    `;
+
+  });
+}
+
+var botonProveedores = document.getElementById('botonProveedores');
+botonProveedores.addEventListener("click",imprimirProveedores);
+
+function imprimirProveedores(){
+  var catalogoProveedores= JSON.parse(localStorage.getItem('catalogoProveedores'));
+  document.getElementById('contenedorInformacion').innerHTML=" ";
+
+  catalogoProveedores.forEach( (proveedorActual,indiceActual) => {
+    document.getElementById('contenedorInformacion').innerHTML+=
+    `
+    <div class="itemInformacion">
+            <div class="titulo">
+              <h2>${proveedorActual.nombre} ${proveedorActual.apellido}</h2>
+            </div>
+            <div class="info descripcion">
+              <p>direccion: ${proveedorActual.direccion}</p>
+              <p>email: ${proveedorActual.email}</p>
+              <p>telefono: ${proveedorActual.telefono}</p>
+            </div>
+      </div>
+    `;
+
+  });
+}
+
