@@ -160,6 +160,11 @@ body{
   width: 100%;
 }
 
+ul{
+  list-style-type: circle;
+  margin-left: 20px;
+}
+
 .parteDerecha{
   display: flex;
   flex-flow: column wrap;

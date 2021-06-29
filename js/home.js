@@ -228,9 +228,11 @@ function imprimirClientes(){
               <h2>${clienteActual.nombre} ${clienteActual.apellido}</h2>
             </div>
             <div class="info descripcion">
-              <p>direccion: ${clienteActual.direccion}</p>
-              <p>email: ${clienteActual.email}</p>
-              <p>telefono: ${clienteActual.telefono}</p>
+              <ul>
+                <li>Direccion: ${clienteActual.direccion}</li>
+                <li>Email: ${clienteActual.email}</li>
+                <li>Telefono: ${clienteActual.telefono}</li>
+              </ul>
             </div>
       </div>
     `;
@@ -253,10 +255,12 @@ function imprimirProveedores(){
               <h2>${proveedorActual.nombre} ${proveedorActual.apellido}</h2>
             </div>
             <div class="info descripcion">
-              <p>direccion: ${proveedorActual.direccion}</p>
-              <p>email: ${proveedorActual.email}</p>
-              <p>telefono: ${proveedorActual.telefono}</p>
-            </div>
+              <ul>
+                <li>Dirección: ${proveedorActual.direccion}</li>
+                <li>Email: ${proveedorActual.email}</li>
+                <li>Telefono: ${proveedorActual.telefono}</li>
+              </ul>
+              </div>
       </div>
     `;
 
