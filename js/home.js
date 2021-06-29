@@ -94,7 +94,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     descripcion:"TV de 32 pulgadas HD",
     precioEntradas:600000,
     precioSalidas:800000,
-    unidades:7,
+    unidades:2,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
     cantidadMinimaDisponibleInventario:3,
@@ -126,7 +126,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     descripcion:"Xiamoi Redmi note 9 64 gb almacenamiento, 2gb RAM",
     precioEntradas:1000000,
     precioSalidas:1200000,
-    unidades:10,
+    unidades:3,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
     cantidadMinimaDisponibleInventario:3,
@@ -156,7 +156,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     descripcion:"Con su sistema Quad Camera con sensor de 64 MP, Almacenamiento interno de 128 GB, Memoria RAM: 4GB",
     precioEntradas:700000,
     precioSalidas:800000,
-    unidades:15,
+    unidades:2,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
     cantidadMinimaDisponibleInventario:3,
@@ -189,7 +189,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     descripcion:"250GB de almacenamiento SDD, 12GB de RAM, Procesador AMD5, Raedon graphics",
     precioEntradas:1900000,
     precioSalidas:2100000,
-    unidades:9,
+    unidades:3,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
     cantidadMinimaDisponibleInventario:3,
@@ -291,8 +291,7 @@ function imprimirCategoriasProductos(){
   var catalogoCategoriasProductos= JSON.parse(localStorage.getItem('catalogoCategoriasProductos'));
   document.getElementById('contenedorInformacion').innerHTML=" ";
 
-  catalogoCategoriasProductos.forEach( (categoriaActual,indiceActual) => {
-    
+  catalogoCategoriasProductos.forEach( (categoriaActual,indiceActual) => { 
     let txt = "";
     for (let x in categoriaActual.productos) {
       txt += categoriaActual.productos[x].nombre + ", cantidad: "+categoriaActual.productos[x].unidades + "<br>"; 
@@ -316,4 +315,36 @@ function imprimirCategoriasProductos(){
   document.getElementById('botonCategoriasDeProductos').classList.add("itemSeleccionado");  
 }
 
-document.addEventListener('DOMContentLoaded',imprimirCategoriasProductos);
+document.addEventListener('DOMContentLoaded', function () {
+  imprimirCategoriasProductos();
+  verificarAbastecimiento();
+});
+
+function verificarAbastecimiento(){
+  //arreglo de categorías
+  let catalogoCategoriasProductos = JSON.parse(localStorage.getItem('catalogoCategoriasProductos'));
+  let productosEscasos= [];
+  let txt="";
+  catalogoCategoriasProductos.forEach((categoriaActual, indiceActual) => {
+    for (const x in categoriaActual.productos) {
+      //Si unidades <= 3
+      if (categoriaActual.productos[x].unidades<=categoriaActual.productos[x].cantidadMinimaDisponibleInventario) {   
+         
+         txt+="<tr>"+"<td>"+categoriaActual.productos[x].nombre+"</td>"+"<td>"+categoriaActual.productos[x].unidades+"</td>"+"</tr>";
+         
+      }
+    }
+  });
+  document.getElementById('tabla1').innerHTML=" ";
+  document.getElementById('tabla1').innerHTML=
+  `<table>
+       <tr>
+         <th scope="col">Productos</th>
+         <th scope="col">Cantidad</th>
+       </tr>
+       ${txt}
+     </table>
+ `;
+
+  
+}
