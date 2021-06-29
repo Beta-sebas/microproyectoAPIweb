@@ -48,7 +48,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     email:"ernesto@gmail.com",
     telefono:"+573333333333"
   };
-  //Metiendo los clientes al arreglo vacío que se creó
+  //Metiendo los proveedores al arreglo vacío que se creó
   catalogoProveedores.push(proveedor1,proveedor2);
   //Creando la pareja clave-valor en el localStorage, guardando el arreglo de proveedores
   localStorage.setItem('catalogoProveedores',JSON.stringify(catalogoProveedores));
@@ -82,7 +82,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     unidades:10,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
-    cantidadMinimaDisponibleInventario:2,
+    cantidadMinimaDisponibleInventario:3,
     Imagen:"../imagenes/samsung.png"
   };
 
@@ -97,7 +97,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     unidades:7,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
-    cantidadMinimaDisponibleInventario:2,
+    cantidadMinimaDisponibleInventario:3,
     Imagen:"../imagenes/lg.png"
   };
 
@@ -112,7 +112,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     unidades:5,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
-    cantidadMinimaDisponibleInventario:2,
+    cantidadMinimaDisponibleInventario:3,
     Imagen:"../imagenes/hyundai.png"
   };
   //--------------
@@ -129,7 +129,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     unidades:10,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
-    cantidadMinimaDisponibleInventario:2,
+    cantidadMinimaDisponibleInventario:3,
     Imagen:"../imagenes/redminote9.png"
   };
 
@@ -144,7 +144,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     unidades:7,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
-    cantidadMinimaDisponibleInventario:2,
+    cantidadMinimaDisponibleInventario:3,
     Imagen:"../imagenes/galaxyS21.png"
   };
 
@@ -159,7 +159,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     unidades:15,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
-    cantidadMinimaDisponibleInventario:2,
+    cantidadMinimaDisponibleInventario:3,
     Imagen:"../imagenes/motog9.png"
   };
   //--------------
@@ -177,7 +177,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     unidades:6,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
-    cantidadMinimaDisponibleInventario:2,
+    cantidadMinimaDisponibleInventario:3,
     Imagen:"../imagenes/asus.png"
   };
 
@@ -192,7 +192,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     unidades:9,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
-    cantidadMinimaDisponibleInventario:2,
+    cantidadMinimaDisponibleInventario:3,
     Imagen:"../imagenes/acer.png"
   };
   //-------------
@@ -213,33 +213,44 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   localStorage.setItem('catalogoCategoriasProductos',JSON.stringify(catalogoCategoriasProductos));
 }
 
+//---------------------------------------------------------------------------------
+//BOTONES PARA IMPRIMIR EN PANTALLA LA INFORMACIÓN
+//Boton de Clientes
 var botonClientes = document.getElementById('botonClientes');
 botonClientes.addEventListener("click",imprimirClientes);
 
 function imprimirClientes(){
+  //arreglo de clientes
   var catalogoClientes= JSON.parse(localStorage.getItem('catalogoClientes'));
   document.getElementById('contenedorInformacion').innerHTML=" ";
 
   catalogoClientes.forEach( (clienteActual,indiceActual) => {
+
     document.getElementById('contenedorInformacion').innerHTML+=
     `
     <div class="itemInformacion">
             <div class="titulo">
               <h2>${clienteActual.nombre} ${clienteActual.apellido}</h2>
             </div>
-            <div class="info descripcion">
+            <div class="descripcion">
               <ul>
                 <li>Direccion: ${clienteActual.direccion}</li>
                 <li>Email: ${clienteActual.email}</li>
                 <li>Telefono: ${clienteActual.telefono}</li>
               </ul>
             </div>
-      </div>
+    </div>
     `;
 
   });
+
+  document.getElementById('botonClientes').classList.add("itemSeleccionado");
+  document.getElementById('botonProveedores').classList.remove("itemSeleccionado");
+  document.getElementById('botonCategoriasDeProductos').classList.remove("itemSeleccionado");
+
 }
 
+//Boton de Proveedores
 var botonProveedores = document.getElementById('botonProveedores');
 botonProveedores.addEventListener("click",imprimirProveedores);
 
@@ -254,7 +265,7 @@ function imprimirProveedores(){
             <div class="titulo">
               <h2>${proveedorActual.nombre} ${proveedorActual.apellido}</h2>
             </div>
-            <div class="info descripcion">
+            <div class="descripcion">
               <ul>
                 <li>Dirección: ${proveedorActual.direccion}</li>
                 <li>Email: ${proveedorActual.email}</li>
@@ -265,5 +276,44 @@ function imprimirProveedores(){
     `;
 
   });
+
+  document.getElementById('botonClientes').classList.remove("itemSeleccionado");
+  document.getElementById('botonProveedores').classList.add("itemSeleccionado");
+  document.getElementById('botonCategoriasDeProductos').classList.remove("itemSeleccionado");
+
 }
 
+//Boton de Categorías de productos
+let botonCategoriasProductos = document.getElementById('botonCategoriasDeProductos');
+botonCategoriasProductos.addEventListener("click", imprimirCategoriasProductos);
+
+function imprimirCategoriasProductos(){
+  var catalogoCategoriasProductos= JSON.parse(localStorage.getItem('catalogoCategoriasProductos'));
+  document.getElementById('contenedorInformacion').innerHTML=" ";
+
+  catalogoCategoriasProductos.forEach( (categoriaActual,indiceActual) => {
+    
+    let txt = "";
+    for (let x in categoriaActual.productos) {
+      txt += categoriaActual.productos[x].nombre + ", cantidad: "+categoriaActual.productos[x].unidades + "<br>"; 
+    }
+    
+    document.getElementById('contenedorInformacion').innerHTML+=
+    `
+    <div class="itemInformacion">
+            <div class="titulo">
+              <h2>${categoriaActual.nombreCategoria}</h2>
+            </div>
+            <div class="descripcion">
+                ${txt}
+              </div>
+      </div>
+    `;
+
+  });
+  document.getElementById('botonClientes').classList.remove("itemSeleccionado");
+  document.getElementById('botonProveedores').classList.remove("itemSeleccionado");
+  document.getElementById('botonCategoriasDeProductos').classList.add("itemSeleccionado");  
+}
+
+document.addEventListener('DOMContentLoaded',imprimirCategoriasProductos);

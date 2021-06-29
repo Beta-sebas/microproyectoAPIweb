@@ -125,6 +125,11 @@ body{
   border-radius: 10px;
 }
 
+.itemSeleccionado{
+  background-color: rgb(64, 64, 64);
+  color: white;
+}
+
 .itemsNavegacion:hover{
   background-color: #130066;
   color: white;
@@ -169,6 +174,8 @@ ul{
   display: flex;
   flex-flow: column wrap;
   text-align:center;
+  justify-content: space-between;
+  align-content: space-between;
   padding: 4px;
 }
 table{
