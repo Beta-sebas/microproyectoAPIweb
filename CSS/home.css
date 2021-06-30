@@ -97,6 +97,13 @@ body{
 .aqui{
   background-color: rgb(123, 209, 144);
 }
+
+.d-none{
+  display: none;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+}
 /*======================================================*/
 
 .parteIzquierda{

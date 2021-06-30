@@ -21,15 +21,18 @@
         <a href="#">Contactanos</a>
       </div>
       <div class="login">
+        <form class="formulario" name="formulario" action="paginas\home.html" onclick="quitarAlerta()" onsubmit="return validarFormulario()" method="post">
           <fieldset>
             <legend>Iniciar Sesión</legend>
-            <input class="barras" type="text" id="email" name="email"  value="" placeholder="Email">
-            <input class="barras" type="password" id="pass" name="pass" value="" placeholder="Contraseña">
-            <span class="caja">Recordarme</span>
-            <input class="caja" type="checkbox" checked="checked" name="recordarme" value="si">
-            <a href="paginas\home.html" class="boton">Iniciar sesión</a>
+            <input class="barras" type="text" id="email" name="email"  value="" placeholder="Email" required >
+            <input class="barras" type="password" id="pass" name="pass" value="" placeholder="Contraseña" required >
+            <input type="submit" name="boton" class="boton" value="Iniciar sesión">
+            <!--<a href="paginas\home.html" class="boton">Iniciar sesión</a>-->
           </fieldset>
-
+        </form>
+      </div>
+      <div class="mensaje d-none" id="mensaje">
+        <p class="texto">Usuario o contraseña incorrecta</p>
       </div>
       <div class="informacion">
         <h2>!Bienvenidos!</h2>
@@ -39,7 +42,6 @@
         <img src="imagenes\foto.png" alt="foto de inicio" title="foto acme" >
       </div>
     </div>
-
-
   </body>
+  <script src="js/index.js" charset="utf-8"></script>
 </html>

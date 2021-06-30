@@ -159,6 +159,12 @@ td{
   margin-top: 5px;
 }
 
+.d-none{
+  display: none;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+}
 
 @media(max-width: 600px){
   .ocultar-peq{

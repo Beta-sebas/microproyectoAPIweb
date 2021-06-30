@@ -17,7 +17,7 @@ body{
   box-shadow: rgba(0, 0, 0, 0.5) 20px 20px 10px;
 
 }
-.logo, .nav, .informacion, .imagen {
+.logo, .nav, .informacion, .imagen, .mensaje {
   width: 100%;
 }
 
@@ -38,6 +38,23 @@ background-color: rgb(43, 43, 43);
 
 .nav a:hover{
   background-color: rgb(2, 119, 48);
+}
+
+.mensaje{
+  display: flex;
+  justify-content:flex-end;
+
+}
+
+.texto{
+  display: flex;
+  justify-content: center;
+  background: rgb(240, 0, 0);
+  width: 100%;
+}
+/* Ocultar el msj de logueo */
+.d-none{
+  display: none;
 }
 
 .logo{
@@ -142,29 +159,15 @@ img {
     font-size: 9px;
   }
   .barras{
-    width: 25%;
+    width: 33%;
     font-size: 13px;
   }
   .login {order: 0;}
   .logo{order: 1;}
   .imagen{order:2;}
   .informacion {order:2;}
-}
-@media (min-width: 900px) {
-  .contenedor {
-    width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .boton{
-    width: 22%;
-    font-size: 15px;
-  }
-  .login span {
-    font-size: 12px;
-  }
-  .barras{
-    width: 26%;
-    font-size: 17px;
+
+  .texto{
+    width: 49%;
   }
 }
