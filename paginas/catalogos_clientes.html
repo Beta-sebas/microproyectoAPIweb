@@ -46,67 +46,29 @@
       <div class="contenedorSecundario">
 
           <div class="botonescatalogos">
-            <a href="catalogos_categorias.html"><input class="botones" type="button" name="button" value="Categorias"></a>
-            <a href="catalogos_proveedores.html"><input class="botones" type="button" name="button" value="Proveedores"></a>
-            <a href="#"><input class="botones" type="button" name="button" value="Clientes"></a>
+            <a href="catalogos_categorias.html"><input class="botones itemsNavegacion" type="button" name="button" value="Categorias"></a>
+            <a href="catalogos_proveedores.html"><input class="botones itemsNavegacion" type="button" name="button" value="Proveedores"></a>
+            <a href="#"><input class="botones itemsNavegacion itemSeleccionado" type="button" name="button" value="Clientes"></a>
           </div>
 
 
-        <div class="contenedorInformacion">
-          <div class="itemInformacion categoria1">
-            <div class="parteIzquierdaitemInformacion">
-              <div class="info titulo">
-                <h2>Cliente 1</h2>
-              </div>
-              <div class="info cantidad">
-                <h3>Michael Jackson</h3>
-              </div>
-              <div class="info descripcion">
-                <p>Cliente fiel desde que sacó su primer disco.
-                </p>
-              </div>
-            </div>
-
-            <div class="parteDerechaitemInformacion">
-              <div class="botonModificar">
-                  <a href="registrar_clientes_proveedores.html"><input type="button" name="Modificar" value="Modificar"></a>
-              </div>
-              <div class="botonEliminar">
-                  <input type="button" name="Eliminar" value="Eliminar">
-              </div>
-            </div>
-          </div>
-
-          <div class="itemInformacion categoria2">
-              <div class="parteIzquierdaitemInformacion">
-                <div class="info titulo">
-                  <h2>Cliente 2</h2>
-                </div>
-                <div class="info cantidad">
-                  <h3>Maluma baby</h3>
-                </div>
-                <div class="info descripcion">
-                  <p>Medio raro el man pero se lo ve contento.
-                  </p>
-                </div>
-              </div>
-              <div class="parteDerechaitemInformacion">
-                <div class="botonModificar">
-                    <a href="registrar_clientes_proveedores.html"><input type="button" name="Modificar" value="Modificar"></a>
-                </div>
-                <div class="botonEliminar">
-                    <input type="button" name="Eliminar" value="Eliminar">
-                </div>
-              </div>
-          </div>
+        <div class="contenedorInformacion" id="contenedorInformacion">
         </div>
+
+        
+        </div>
+
+        <div class="buscarnuevo">
+          <a  href="registrar_clientes_proveedores.html"><input type="button" class="botonRegistrar" name="registrar" value="Registar Nuevo Cliente"></a>
+        </div>
+
+
       </div>
 
-      <div class="buscarnuevo">
-        <a href="registrar_clientes_proveedores.html"><input type="button" name="registrar" value="Registar Nuevo Cliente"></a>
-      </div>
+      
 
     </div>
   </body>
   <script src="../js/menuResponsive.js" charset="utf-8"></script>
+  <script src="../js/catalogo_clientes.js" charset="utf-8"></script>
 </html>
