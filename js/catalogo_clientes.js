@@ -12,7 +12,7 @@ function imprimirClientes(){
 
     catalogoClientes.forEach( (clienteActual, indiceActual) => {
       document.getElementById('contenedorInformacion').innerHTML+=
-      `     
+      `
       <div class="itemInformacion">
             <div class="parteIzquierdaitemInformacion">
               <div class="titulo">
@@ -25,11 +25,11 @@ function imprimirClientes(){
                   <li>Telefono: ${clienteActual.telefono}</li>
                 </ul>
               </div>
-            </div>   
-            
+            </div>
+
             <div class="parteDerechaitemInformacion">
               <div>
-                  <a class="botonModificar" href="registrar_clientes_proveedores.html" onclick="modificarCliente(${indiceActual})"><img class="imgModificar" src="../imagenes/lapiz.png" alt="Modificar" title="Modificar"></a>
+                  <a class="botonModificar" href="modificar_clientes.html" onclick="modificarCliente(${indiceActual})"><img class="imgModificar" src="../imagenes/lapiz.png" alt="Modificar" title="Modificar"></a>
               </div>
               <div>
               <a class="botonEliminar" href="#" onclick="eliminarCliente(${indiceActual})"><img class="imgEliminar" src="../imagenes/eliminar.png" alt="Eliminar" title="Eliminar"></a>
@@ -37,7 +37,7 @@ function imprimirClientes(){
             </div>
       </div>
       `;
-  
+
     });
   }
 
