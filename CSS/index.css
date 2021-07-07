@@ -43,7 +43,9 @@ background-color: rgb(43, 43, 43);
 .mensaje{
   display: flex;
   justify-content:flex-end;
-
+  opacity:0;
+  transition: 0.8s ease all;
+  transform: scale(0.7);
 }
 
 .texto{
@@ -53,8 +55,9 @@ background-color: rgb(43, 43, 43);
   width: 100%;
 }
 /* Ocultar el msj de logueo */
-.d-none{
-  display: none;
+.mensaje.active{
+  opacity: 1;
+  transform: scale(1);
 }
 
 .logo{
@@ -168,6 +171,6 @@ img {
   .informacion {order:2;}
 
   .texto{
-    width: 49%;
+    width: 50%;
   }
 }

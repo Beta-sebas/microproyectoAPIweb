@@ -74,7 +74,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   var televisores1 = {
     codigo:"0001",
     nombre:"SmartTV Samsung serie 3X",
-    categoría:"Televisores",
+    categoria:"Televisores",
     ubicacion:"bodega",
     descripcion:"SmarTV de 49 pulgadas con base incluida y control inteligente",
     precioEntradas:1000000,
@@ -89,7 +89,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   var televisores2 = {
     codigo:"0002",
     nombre:"TV LG Classic",
-    categoría:"Televisores",
+    categoria:"Televisores",
     ubicacion:"vitrina",
     descripcion:"TV de 32 pulgadas HD",
     precioEntradas:600000,
@@ -104,7 +104,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   var televisores3 = {
     codigo:"0003",
     nombre:"smartTV Hyundai 35jl",
-    categoría:"Televisores",
+    categoria:"Televisores",
     ubicacion:"bodega",
     descripcion:"smartTV 42 pulgadas sonido envolvente",
     precioEntradas:900000,
@@ -121,7 +121,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   var celulares1 = {
     codigo:"0004",
     nombre:"Xiamoi Redmi note 9",
-    categoría:"Celulares",
+    categoria:"Celulares",
     ubicacion:"vitrina",
     descripcion:"Xiamoi Redmi note 9 64 gb almacenamiento, 2gb RAM",
     precioEntradas:1000000,
@@ -136,7 +136,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   var celulares2 = {
     codigo:"0005",
     nombre:"Samsung Galaxy S21",
-    categoría:"Celulares",
+    categoria:"Celulares",
     ubicacion:"Bodega",
     descripcion:"Una pantalla Dynamic AMOLED de 6,8 pulgadas con resolución WQHD+ y una tasa de refresco máxima de 120 hercios",
     precioEntradas:3000000,
@@ -151,7 +151,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   var celulares3 = {
     codigo:"0006",
     nombre:"Motorola moto g9",
-    categoría:"Celulares",
+    categoria:"Celulares",
     ubicacion:"Vitrina",
     descripcion:"Con su sistema Quad Camera con sensor de 64 MP, Almacenamiento interno de 128 GB, Memoria RAM: 4GB",
     precioEntradas:700000,
@@ -169,7 +169,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   var computadores1 = {
     codigo:"0007",
     nombre:"Asus x455L",
-    categoría:"Computadores",
+    categoria:"Computadores",
     ubicacion:"Bodega",
     descripcion:"(1TB de almacenamiento HDD, 8GB de RAM, Procesador intel core i5 5500 2GHZ, Tarjeta de video NVIDIA Gforce 920m",
     precioEntradas:1500000,
@@ -184,7 +184,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   var computadores2 = {
     codigo:"0008",
     nombre:"Acer TY300",
-    categoría:"Computadores",
+    categoria:"Computadores",
     ubicacion:"Vitrina",
     descripcion:"250GB de almacenamiento SDD, 12GB de RAM, Procesador AMD5, Raedon graphics",
     precioEntradas:1900000,
@@ -291,12 +291,12 @@ function imprimirCategoriasProductos(){
   var catalogoCategoriasProductos= JSON.parse(localStorage.getItem('catalogoCategoriasProductos'));
   document.getElementById('contenedorInformacion').innerHTML=" ";
 
-  catalogoCategoriasProductos.forEach( (categoriaActual,indiceActual) => { 
+  catalogoCategoriasProductos.forEach( (categoriaActual,indiceActual) => {
     let txt = "";
     for (let x in categoriaActual.productos) {
-      txt += categoriaActual.productos[x].nombre + ", cantidad: "+categoriaActual.productos[x].unidades + "<br>"; 
+      txt += categoriaActual.productos[x].nombre + ", cantidad: "+categoriaActual.productos[x].unidades + "<br>";
     }
-    
+
     document.getElementById('contenedorInformacion').innerHTML+=
     `
     <div class="itemInformacion">
@@ -312,7 +312,7 @@ function imprimirCategoriasProductos(){
   });
   document.getElementById('botonClientes').classList.remove("itemSeleccionado");
   document.getElementById('botonProveedores').classList.remove("itemSeleccionado");
-  document.getElementById('botonCategoriasDeProductos').classList.add("itemSeleccionado");  
+  document.getElementById('botonCategoriasDeProductos').classList.add("itemSeleccionado");
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -328,10 +328,10 @@ function verificarAbastecimiento(){
   catalogoCategoriasProductos.forEach((categoriaActual, indiceActual) => {
     for (const x in categoriaActual.productos) {
       //Si unidades <= 3
-      if (categoriaActual.productos[x].unidades<=categoriaActual.productos[x].cantidadMinimaDisponibleInventario) {   
-         
+      if (categoriaActual.productos[x].unidades<=categoriaActual.productos[x].cantidadMinimaDisponibleInventario) {
+
          txt+="<tr>"+"<td>"+categoriaActual.productos[x].nombre+"</td>"+"<td>"+categoriaActual.productos[x].unidades+"</td>"+"</tr>";
-         
+
       }
     }
   });
@@ -346,5 +346,5 @@ function verificarAbastecimiento(){
      </table>
  `;
 
-  
+
 }

@@ -78,6 +78,47 @@
         </div>
       </div>
 
+      <div class="overlay mod-productos" id="overlay-mod-productos">
+        <div class="popup mod-productos" id="popup-mod-productos">
+          <a onclick="cerrarPopupProducto()" class="cerrar-popup" title="Cerrar" id="cerrar-popupProducto"><i class="fa fa-times"></i></a>
+          <h2>Ingresa los datos del Producto:</h2>
+          <form action="catalogos_categorias.html" onsubmit="return verificarAccionProducto()" method="POST">
+            <div class="contenedor-inputs">
+              <h3>Codigo:</h3>
+              <input type="text" value="" placeholder="codigo" id="codigo" class="inputTexto" required>
+              <h3>Nombre:</h3>
+              <input type="text" value="" placeholder="nombre" id="nombre" class="inputTexto" required>
+              <h3>Categoria:</h3>
+              <input type="text" value="" placeholder="categoria" id="categoria" class="inputTexto" required>
+              <h3>Ubicaion:</h3>
+              <input type="text" value="" placeholder="ubicacion" id="ubicacion" class="inputTexto" required>
+              <h3>Descripcion:</h3>
+              <input type="text" value="" placeholder="descripcion" id="descripcion" class="inputTexto" required>
+              <h3>Precio de Entrada:</h3>
+              <input type="text" value="" placeholder="precioEntradas" id="precioEntradas" class="inputTexto" required>
+              <h3>Precio de Salida:</h3>
+              <input type="text" value="" placeholder="precioSalidas" id="precioSalidas" class="inputTexto" required>
+              <h3>Unidades:</h3>
+              <input type="text" value="" placeholder="unidades" id="unidades" class="inputTexto" required>
+              <h3>Presentacion:</h3>
+              <input type="text" value="" placeholder="presentacion" id="presentacion" class="inputTexto" required>
+              <h3>Cantidad Inicial Disponible:</h3>
+              <input type="text" value="" placeholder="cantidadInicialDisponibleInventario" id="cantidadInicialDisponibleInventario" class="inputTexto" required>
+              <h3>Cantidad Minima Disponible:</h3>
+              <input type="text" value="" placeholder="cantidadMinimaDisponibleInventario" id="cantidadMinimaDisponibleInventario" class="inputTexto" required>
+              <h3>Imagen:</h3>
+              <div class="imagenProducto">
+                  <img src="" alt="Imagen Producto" title="Imagen Producto" id="image">
+              </div>
+              <input type="text" value="" placeholder="Imagen del producto" id="imagen" class="inputTexto" >
+            </div>
+            <div class="contenedor-boton">
+              <input type="submit" value=""  class="btn-submit" id="btn-submit-mod-producto">
+            </div>
+          </form>
+        </div>
+      </div>
+
     </div>
   </body>
   <script src="../js/menuResponsive.js" charset="utf-8"></script>

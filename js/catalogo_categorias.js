@@ -27,10 +27,10 @@ function imprimirCategorias () {
                       </div>
                       <div class="parteDerechaitemInformacion">
                         <div>
-                            <a class="botonModProducto" href="modificar_clientes.html" onclick=""><img class="imgModificar" src="../imagenes/lapiz.png" alt="Modificar" title="Modificar"></a>
+                            <a class="botonModProducto" onclick="abrirPopupModificarProducto(${indiceCategoriaActual},${x})"><img class="imgModificar" src="../imagenes/lapiz.png" alt="Modificar" title="Modificar"></a>
                         </div>
                         <div>
-                        <a class="botonElimiProducto" href="#" onclick=""><img class="imgEliminar" src="../imagenes/eliminar.png" alt="Eliminar" title="Eliminar"></a>
+                        <a class="botonElimiProducto" onclick="eliminarProducto(${indiceCategoriaActual},${x})"><img class="imgEliminar" src="../imagenes/eliminar.png" alt="Eliminar" title="Eliminar"></a>
                         </div>
                       </div>
                 </div>
@@ -46,7 +46,7 @@ function imprimirCategorias () {
           </div>
 
           <div class="parteDerechaitemInformacion">
-            
+
             <div>
               <a class="botonModificar"  onclick="abrirPopupModificarCategoria(${indiceCategoriaActual})"><img class="imgModificar" src="../imagenes/lapiz.png" alt="Modificar Categoría" title="Modificar Categoría"></a>
             </div>
@@ -58,7 +58,7 @@ function imprimirCategorias () {
           ${txt}
           </div>
           <div class="contenedor-boton-agregar">
-              <a class="botonAgregar" href="#" onclick=""><i class="fa fa-plus"></i></a>
+              <a class="botonAgregar" onclick="abrirPopupAgregarProducto(${indiceCategoriaActual})"><i class="fa fa-plus"></i></a>
           </div>
     </div>
     `;
@@ -68,6 +68,8 @@ function imprimirCategorias () {
 
 const overlayModificarCategoria = document.getElementById("overlay-mod-categoria");
 const popupModificarCategoria = document.getElementById("popup-mod-categoria");
+const overlayModificarProducto = document.getElementById("overlay-mod-productos");
+const popupModificarProducto = document.getElementById("popup-mod-productos");
 
 
 function abrirPopupModificarCategoria(indiceCategoriaActual) {
@@ -88,7 +90,7 @@ function abrirPopupAgregarCategoria() {
 
 function cerrarPopup(){
   overlayModificarCategoria.classList.remove("active");
-  popupModificarCategoria.classList.remove("active");  
+  popupModificarCategoria.classList.remove("active");
 }
 
 
@@ -122,6 +124,126 @@ function agregarCategoria(){
   }
   categoriaNueva.nombreCategoria = document.getElementById("nombreCategoriaMod").value;
   catalogoCategoriasProductos.push(categoriaNueva);
+  localStorage.setItem("catalogoCategoriasProductos",JSON.stringify(catalogoCategoriasProductos));
+  return true;
+}
+
+function modificarCategoria(){
+  var catalogoCategoriasProductos = JSON.parse(localStorage.getItem("catalogoCategoriasProductos"));
+  var indiceParaModificar = localStorage.getItem("indiceParaModificar");
+
+  if(document.getElementById("nombreCategoriaMod").value==""){
+    return false;
+  }
+
+  catalogoCategoriasProductos[indiceParaModificar].nombreCategoria = document.getElementById("nombreCategoriaMod").value;
+  localStorage.setItem("catalogoCategoriasProductos", JSON.stringify(catalogoCategoriasProductos));
+
+  return true;
+}
+
+
+
+//-----------------------------------Funciones---popupProductos------------------------------------------------------
+
+
+
+function abrirPopupModificarProducto(indiceCategoriaActual, indiceProductoActual) {
+  overlayModificarProducto.classList.add("active");
+  popupModificarProducto.classList.add("active");
+  var catalogoCategoriasProductos = JSON.parse(localStorage.getItem("catalogoCategoriasProductos"));
+  document.getElementById("codigo").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].codigo;
+  document.getElementById("nombre").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].nombre;
+  document.getElementById("categoria").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].categoria;
+  document.getElementById("ubicacion").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].ubicacion;
+  document.getElementById("descripcion").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].descripcion;
+  document.getElementById("precioEntradas").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].precioEntradas;
+  document.getElementById("precioSalidas").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].precioSalidas;
+  document.getElementById("unidades").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].unidades;
+  document.getElementById("presentacion").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].presentacion;
+  document.getElementById("cantidadInicialDisponibleInventario").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].cantidadInicialDisponibleInventario;
+  document.getElementById("cantidadMinimaDisponibleInventario").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].cantidadMinimaDisponibleInventario;
+  document.getElementById("imagen").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].Imagen;
+  let indices = [indiceCategoriaActual, indiceProductoActual];
+  localStorage.setItem("indiceParaModificarProductos",indices);
+  document.getElementById("btn-submit-mod-producto").value="Modificar Producto";
+}
+
+function abrirPopupAgregarProducto(indiceCategoriaActual) {
+  overlayModificarProducto.classList.add("active");
+  popupModificarProducto.classList.add("active");
+  document.getElementById("codigo").value ="";
+  document.getElementById("nombre").value ="";
+  document.getElementById("categoria").value ="";
+  document.getElementById("ubicacion").value ="";
+  document.getElementById("descripcion").value ="";
+  document.getElementById("precioEntradas").value ="";
+  document.getElementById("precioSalidas").value ="";
+  document.getElementById("unidades").value ="";
+  document.getElementById("presentacion").value ="";
+  document.getElementById("cantidadInicialDisponibleInventario").value ="";
+  document.getElementById("cantidadMinimaDisponibleInventario").value ="";
+  document.getElementById("btn-submit-mod-producto").value="Agregar Producto";
+  localStorage.setItem("indiceParaModificar", indiceCategoriaActual);
+}
+
+function cerrarPopupProducto(){
+  overlayModificarProducto.classList.remove("active");
+  popupModificarProducto.classList.remove("active");
+}
+
+function eliminarProducto(indiceCategoriaActual, indiceProductoActual){
+  var catalogoCategoriasProductos = JSON.parse(localStorage.getItem("catalogoCategoriasProductos"));
+  catalogoCategoriasProductos[indiceCategoriaActual].productos.splice(indiceProductoActual,1);
+  localStorage.setItem("catalogoCategoriasProductos", JSON.stringify(catalogoCategoriasProductos));
+  imprimirCategorias();
+}
+
+function verificarAccionProducto(){
+  if(document.getElementById("btn-submit-mod-producto").value=="Modificar Producto"){
+    return modificarProducto();
+  }
+  if(document.getElementById("btn-submit-mod-producto").value=="Agregar Producto"){
+    return agregarProducto();
+  }
+}
+
+
+function agregarProducto(){
+  var catalogoCategoriasProductos = JSON.parse(localStorage.getItem("catalogoCategoriasProductos"));
+  var productoNuevo = {
+    codigo:"",
+    nombre:"",
+    categoria:"",
+    ubicacion:"",
+    descripcion:"",
+    precioEntradas:0,
+    precioSalidas:0,
+    unidades:0,
+    presentacion:"",
+    cantidadInicialDisponibleInventario:0,
+    cantidadMinimaDisponibleInventario:0,
+    Imagen:""
+  };
+
+
+  if((document.getElementById("codigo").value=="")||(document.getElementById("nombre").value=="")||(document.getElementById("categoria").value=="")||(document.getElementById("ubicacion").value=="")||(document.getElementById("descripcion").value=="")||(document.getElementById("precioEntradas").value=="")||(document.getElementById("precioSalidas").value=="")||(document.getElementById("unidades").value=="")||(document.getElementById("Presentacion").value=="")||(document.getElementById("cantidadInicialDisponibleInventario").value=="")||(document.getElementById("cantidadMinimaDisponibleInventario").value=="")){
+    return false;
+  }
+
+  productoNuevo.codigo =document.getElementById("codigo").value;
+  productoNuevo.nombre =document.getElementById("nombre").value;
+  productoNuevo.categoria =document.getElementById("categoria").value;
+  productoNuevo.ubicacion =document.getElementById("ubicacion").value;
+  productoNuevo.descripcion =document.getElementById("descripcion").value;
+  productoNuevo.precioEntradas =document.getElementById("precioEntradas").value;
+  productoNuevo.precioSalidas =document.getElementById("precioSalidas").value;
+  productoNuevo.unidades =document.getElementById("unidades").value;
+  productoNuevo.presentacion =document.getElementById("presentacion").value;
+  productoNuevo.cantidadInicialDisponibleInventario =document.getElementById("cantidadInicialDisponibleInventario").value;
+  productoNuevo.cantidadMinimaDisponibleInventario =document.getElementById("cantidadMinimaDisponibleInventario").value;
+  let indiceCategoriaActual = localStorage.getItem("indiceParaModificar");
+  catalogoCategoriasProductos[indiceCategoriaActual].productos.push(productoNuevo);
   localStorage.setItem("catalogoCategoriasProductos",JSON.stringify(catalogoCategoriasProductos));
   return true;
 }

@@ -37,11 +37,11 @@ function validarFormulario() {
       return true;
       }
   }
-  mensaje.classList.remove("d-none");
+  mensaje.classList.add("active");
   return false;
 }
 
 function quitarAlerta() {
   let mensaje = document.getElementById('mensaje');
-  mensaje.classList.add("d-none");
+  mensaje.classList.remove("active");
 }
