@@ -6,7 +6,8 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <!--<meta name="description" content="un taller a solucionar">-->
   <title>Catálogos : Categoria </title>
-  <link rel="stylesheet" href="../CSS/catalogosprueba.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../CSS/catalogos_categorias.css">
   <!--<link rel="shortcut icon" type="image/x-icon" href="imagenes\favicon.ico">-->
   <!-- <link rel="shortcut icon" href="http://www.wikipedia.org/favicon.ico" /> -->
   </head>
@@ -59,8 +60,24 @@
       </div>
 
       <div class="buscarnuevo">
-        <a href="registrar_productos.html"><input type="button" class="botonRegistrar" name="registrar" value="Registar Nuevo Producto"></a>
+        <input type="button" class="botonRegistrar" onclick="abrirPopupAgregarCategoria()" name="registrar" value="Agregar Nueva Categoría">
       </div>
+
+      <div class="overlay mod-categoria" id="overlay-mod-categoria">
+        <div class="popup mod-categoria" id="popup-mod-categoria">
+          <a onclick="cerrarPopup()" class="cerrar-popup" title="Cerrar" id="cerrar-popup"><i class="fa fa-times"></i></a>
+          <h2>Nombre de la Categoría:</h2>
+          <form action="catalogos_categorias.html" onsubmit="return verificarAccion()" method="POST">
+            <div class="contenedor-inputs">
+              <input type="text" value="" placeholder="Nombre Categoría" id="nombreCategoriaMod" class="inputTexto" required>
+            </div>
+            <div class="contenedor-boton">
+              <input type="submit" value="Modificar" class="btn-submit" id="btn-submit-mod-categoria">
+            </div>
+          </form>
+        </div>
+      </div>
+
     </div>
   </body>
   <script src="../js/menuResponsive.js" charset="utf-8"></script>

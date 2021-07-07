@@ -106,6 +106,17 @@ body{
 }
 /*======================================================*/
 
+.titulopage{
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.titulopage h2{
+  font-size: 3em;
+}
+
 .parteIzquierda{
   padding-left: 5px;
   display: flex;
@@ -185,16 +196,26 @@ ul{
   align-content: space-between;
   padding: 4px;
 }
+
+.parteDerecha h3, .parteIzquierda h3{
+  margin-bottom: 20px;
+}
+
 table{
   background-color: rgb(125, 185, 241);
   width: 100%;
   margin: auto;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 
 td{
   margin:0px;
   background-color: rgb(173, 215, 255);
   text-align: center;
+  border-radius: 5px;
+  padding: 3px;
 }
 .abastecer{
   display: flex;
@@ -206,11 +227,18 @@ td{
 }
 .botonabastecer input{
   margin-top: 10%;
-  background: rgb(189, 189, 189);
+  background: rgb(102, 182, 86);
+  font-family: sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  transition: 0.3s ease all;
 
 }
 .botonabastecer input:hover{
-  background-color: rgb(83, 83, 83);
+  background-color: rgb(62, 114, 51);
   color: white;
 }
 

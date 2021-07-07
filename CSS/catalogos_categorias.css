@@ -5,6 +5,8 @@
   font-family: sans-serif;
 }
 
+
+
 body{
   font-family: sans-serif;
   background-color: rgb(45, 65, 92);
@@ -61,8 +63,14 @@ body{
   height: auto;
   background-color: rgb(171, 171, 171);
 }
+
+.efecto{
+  transition: 0.3s ease all;
+}
+
 .efecto:hover{
   background-color: rgb(2, 119, 48);
+  
 }
 .ocultar-peq{
   background-color: rgb(43, 43, 43);
@@ -74,6 +82,7 @@ body{
   justify-content: flex-start;
   width: 100%;
   border-radius: 10px;
+  
 }
 /*------------------Barra de navegación pequeño*/
 .nav-movil{
@@ -89,7 +98,7 @@ body{
 }
 .enlaces-movil{
   width: 100%;
-  background-color: rgb(43, 43, 43);;
+  background-color: rgb(43, 43, 43);
 }
 .enlaces-movil a, .aqui{
   background-color: rgb(43, 43, 43);
@@ -101,6 +110,7 @@ body{
   justify-content: flex-start;
   width: 100%;
   border-radius: 10px;
+  
 }
 .aqui{
   background-color: rgb(123, 209, 144);
@@ -161,6 +171,7 @@ body{
   margin-right: 4px;
   margin-bottom: 5px;
   border-radius: 10px;
+  transition: 0.3s ease all;
 }
 
 .itemSeleccionado{
@@ -267,45 +278,86 @@ ul{
   width: 40px;
   height: 40px;
   text-align: center;
-  background-color: rgb(42, 235, 32);
+  background-color: rgb(126, 192, 124);
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  color: rgb(238, 238, 238);
+  text-align: center;
+  font-size: 24px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.301);
+  transition: 0.3s ease all;
 }
 
 .botonAgregar:hover{
-  background-color: rgb(43, 208, 9);
+  background-color: rgb(157, 233, 142);
+  box-shadow: 0px 0px 0px 3px rgb(157, 233, 142);
 }
 
 .botonModificar, .botonModProducto{
   width: 40px;
   height: 40px;
   text-align: center;
-  background-color: rgb(0, 44, 175);
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.botonModificar:hover, .botonModProducto:hover{
-  background-color: rgb(0, 28, 110);
+.botonModificar{
+  background-color: rgb(0, 47, 187);
+  transition: 0.3s ease all;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.308); 
+}
+
+.botonModificar:hover{
+  background-color: rgb(17, 77, 255);
+  box-shadow: 0px 0px 0px 3px rgb(17, 77, 255);
+}
+
+.botonModProducto{
+  background-color: rgb(76, 121, 255);
+  transition: 0.3s ease all;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.308);
+}
+
+.botonModProducto:hover{
+  background-color: rgb(127, 159, 255);
+  box-shadow: 0px 0px 0px 5px rgb(127, 159, 255);
 }
 
 .botonEliminar, .botonElimiProducto{
   width: 40px;
   height: 40px;
   text-align: center;
-  background-color: rgb(238, 30, 30);
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.botonEliminar:hover, .botonElimiProducto:hover{
-  background-color: rgb(185, 0, 0);
+.botonEliminar{
+  background-color: rgb(194, 0, 0);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.308);
+  transition: 0.3s ease all;
+}
+
+.botonEliminar:hover{
+  background-color: rgb(255, 23, 23);
+  box-shadow: 0px 0px 0px 3px rgb(255, 23, 23);
+}
+
+.botonElimiProducto{
+  background-color: rgb(252, 88, 88);
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.308);
+  transition: 0.3s ease all;
+}
+
+.botonElimiProducto:hover{
+  background-color: rgb(255, 156, 156);
+  box-shadow: 0px 0px 0px 5px rgb(255, 156, 156);
 }
 
 .botonRegistrar{
@@ -316,11 +368,106 @@ ul{
   font-weight: bold;
   padding: 7px;
   border-radius: 10px;
+  transition: 0.3s ease all;
 }
 
 .botonRegistrar:hover{
   background-color: rgb(0, 73, 29);
 }
+
+.contenedor-boton-agregar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/*PopUp==============================================================================*/
+.overlay{
+  background-color: rgba(0, 0, 0, 0.288);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.overlay.active{
+  visibility: visible;
+}
+
+
+.popup{
+  background-color: #f8f8f8;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.288);
+  border-radius: 5px;
+  width: 500px;
+  padding: 20px;
+
+  /*para animar*/
+  opacity: 0;
+  transform: scale(0.7);
+  transition: 0.3s ease all;
+}
+
+.popup.active{
+  opacity: 1;
+  transform: scale(1);
+}
+
+.popup .cerrar-popup{
+  font-size: 1em;
+  line-height: 1em;
+  display: block;
+  text-align: right;
+  color: #BBB;
+  transition: 0.3s ease all;
+}
+
+.popup .cerrar-popup:hover{
+  color:rgb(43, 43, 43);
+}
+
+.popup h2{
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.popup form .contenedor-inputs input{
+  width: 100%;
+  margin-bottom: 20px;
+  height: 52px;
+  border-radius: 10px;
+  border: 1px solid #BBB;
+  padding-left: 5px;
+  font-family: sans-serif;
+  font-size: 1em;
+  font-weight: bold; 
+}
+
+.popup form .contenedor-boton{
+  display: flex;
+  justify-content: center;
+}
+
+.popup form .contenedor-boton .btn-submit{
+  border: none;
+  background-color: rgb(0, 81, 255);
+  font-family: sans-serif;
+  color: white;
+  padding: 5px;
+  font-size: 1em;
+  border-radius: 5px;
+  transition: 0.3s ease all;
+}
+.popup form .contenedor-boton .btn-submit:hover{
+  background-color: rgb(77, 130, 245);
+}
+
+/*PopUp==============================================================================*/
 
 
 img {
