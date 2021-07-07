@@ -172,9 +172,10 @@ function abrirPopupModificarProducto(indiceCategoriaActual, indiceProductoActual
 function abrirPopupAgregarProducto(indiceCategoriaActual) {
   overlayModificarProducto.classList.add("active");
   popupModificarProducto.classList.add("active");
+  let catalogoCategoriasProductos = JSON.parse(localStorage.getItem("catalogoCategoriasProductos"));
   document.getElementById("codigo").value ="";
   document.getElementById("nombre").value ="";
-  document.getElementById("categoria").value ="";
+  document.getElementById("categoria").value = catalogoCategoriasProductos[indiceCategoriaActual].nombreCategoria;
   document.getElementById("ubicacion").value ="";
   document.getElementById("descripcion").value ="";
   document.getElementById("precioEntradas").value ="";
@@ -183,6 +184,7 @@ function abrirPopupAgregarProducto(indiceCategoriaActual) {
   document.getElementById("presentacion").value ="";
   document.getElementById("cantidadInicialDisponibleInventario").value ="";
   document.getElementById("cantidadMinimaDisponibleInventario").value ="";
+  document.getElementById("imagen").value ="";
   document.getElementById("btn-submit-mod-producto").value="Agregar Producto";
   localStorage.setItem("indiceParaModificar", indiceCategoriaActual);
 }
@@ -203,7 +205,7 @@ function verificarAccionProducto(){
   if(document.getElementById("btn-submit-mod-producto").value=="Modificar Producto"){
     return modificarProducto();
   }
-  if(document.getElementById("btn-submit-mod-producto").value=="Agregar Producto"){
+  else{
     return agregarProducto();
   }
 }
@@ -227,7 +229,7 @@ function agregarProducto(){
   };
 
 
-  if((document.getElementById("codigo").value=="")||(document.getElementById("nombre").value=="")||(document.getElementById("categoria").value=="")||(document.getElementById("ubicacion").value=="")||(document.getElementById("descripcion").value=="")||(document.getElementById("precioEntradas").value=="")||(document.getElementById("precioSalidas").value=="")||(document.getElementById("unidades").value=="")||(document.getElementById("Presentacion").value=="")||(document.getElementById("cantidadInicialDisponibleInventario").value=="")||(document.getElementById("cantidadMinimaDisponibleInventario").value=="")){
+  if((document.getElementById("presentacion").value=="")||(document.getElementById("codigo").value=="")||(document.getElementById("nombre").value=="")||(document.getElementById("categoria").value=="")||(document.getElementById("ubicacion").value=="")||(document.getElementById("descripcion").value=="")||(document.getElementById("precioEntradas").value=="")||(document.getElementById("precioSalidas").value=="")||(document.getElementById("unidades").value=="")||(document.getElementById("cantidadInicialDisponibleInventario").value=="")||(document.getElementById("cantidadMinimaDisponibleInventario").value=="")){
     return false;
   }
 
@@ -242,21 +244,38 @@ function agregarProducto(){
   productoNuevo.presentacion =document.getElementById("presentacion").value;
   productoNuevo.cantidadInicialDisponibleInventario =document.getElementById("cantidadInicialDisponibleInventario").value;
   productoNuevo.cantidadMinimaDisponibleInventario =document.getElementById("cantidadMinimaDisponibleInventario").value;
+  productoNuevo.Imagen =document.getElementById("imagen").value;
+  let imagen = document.getElementById("imagen").value;
+  document.getElementById('imagenes').src= '../imagenes/.png';
+
   let indiceCategoriaActual = localStorage.getItem("indiceParaModificar");
   catalogoCategoriasProductos[indiceCategoriaActual].productos.push(productoNuevo);
   localStorage.setItem("catalogoCategoriasProductos",JSON.stringify(catalogoCategoriasProductos));
   return true;
 }
 
-function modificarCategoria(){
-  var catalogoCategoriasProductos = JSON.parse(localStorage.getItem("catalogoCategoriasProductos"));
-  var indiceParaModificar = localStorage.getItem("indiceParaModificar");
+function modificarProducto(){
+  let catalogoCategoriasProductos = JSON.parse(localStorage.getItem("catalogoCategoriasProductos"));
+  let indiceParaModificar = localStorage.getItem("indiceParaModificarProductos");
+  let indiceParaModificarCategoria = indiceParaModificar[0];
+  let indiceParaModificarProductos = indiceParaModificar[2];
 
-  if(document.getElementById("nombreCategoriaMod").value==""){
+  if((document.getElementById("codigo").value=="")||(document.getElementById("nombre").value=="")||(document.getElementById("categoria").value=="")||(document.getElementById("ubicacion").value=="")||(document.getElementById("descripcion").value=="")||(document.getElementById("precioEntradas").value=="")||(document.getElementById("precioSalidas").value=="")||(document.getElementById("unidades").value=="")||(document.getElementById("cantidadInicialDisponibleInventario").value=="")||(document.getElementById("cantidadMinimaDisponibleInventario").value=="")){
     return false;
   }
 
-  catalogoCategoriasProductos[indiceParaModificar].nombreCategoria = document.getElementById("nombreCategoriaMod").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].codigo = document.getElementById("codigo").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].nombre = document.getElementById("nombre").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].categoria = document.getElementById("categoria").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].ubicacion = document.getElementById("ubicacion").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].descripcion = document.getElementById("descripcion").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].precioEntradas = document.getElementById("precioEntradas").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].precioSalidas = document.getElementById("precioSalidas").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].unidades = document.getElementById("unidades").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].presentacion = document.getElementById("presentacion").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].cantidadInicialDisponibleInventario = document.getElementById("cantidadInicialDisponibleInventario").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].cantidadMinimaDisponibleInventario = document.getElementById("cantidadMinimaDisponibleInventario").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].Imagen = document.getElementById("imagen").value;
   localStorage.setItem("catalogoCategoriasProductos", JSON.stringify(catalogoCategoriasProductos));
 
   return true;
