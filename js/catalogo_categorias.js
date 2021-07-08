@@ -163,10 +163,13 @@ function abrirPopupModificarProducto(indiceCategoriaActual, indiceProductoActual
   document.getElementById("presentacion").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].presentacion;
   document.getElementById("cantidadInicialDisponibleInventario").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].cantidadInicialDisponibleInventario;
   document.getElementById("cantidadMinimaDisponibleInventario").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].cantidadMinimaDisponibleInventario;
-  document.getElementById("imagen").value = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].Imagen;
+  document.getElementById("imagen").value =  catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].Imagen;
   let indices = [indiceCategoriaActual, indiceProductoActual];
   localStorage.setItem("indiceParaModificarProductos",indices);
+  let imgProducto = catalogoCategoriasProductos[indiceCategoriaActual].productos[indiceProductoActual].Imagen;
+  document.getElementById("imgProducto").src=imgProducto;
   document.getElementById("btn-submit-mod-producto").value="Modificar Producto";
+
 }
 
 function abrirPopupAgregarProducto(indiceCategoriaActual) {
@@ -238,15 +241,16 @@ function agregarProducto(){
   productoNuevo.categoria =document.getElementById("categoria").value;
   productoNuevo.ubicacion =document.getElementById("ubicacion").value;
   productoNuevo.descripcion =document.getElementById("descripcion").value;
-  productoNuevo.precioEntradas =document.getElementById("precioEntradas").value;
-  productoNuevo.precioSalidas =document.getElementById("precioSalidas").value;
-  productoNuevo.unidades =document.getElementById("unidades").value;
+  productoNuevo.precioEntradas =parseInt(document.getElementById("precioEntradas").value,10);
+  productoNuevo.precioSalidas =parseInt(document.getElementById("precioSalidas").value,10);
+  productoNuevo.unidades =parseInt(document.getElementById("unidades").value,10);
   productoNuevo.presentacion =document.getElementById("presentacion").value;
-  productoNuevo.cantidadInicialDisponibleInventario =document.getElementById("cantidadInicialDisponibleInventario").value;
-  productoNuevo.cantidadMinimaDisponibleInventario =document.getElementById("cantidadMinimaDisponibleInventario").value;
-  productoNuevo.Imagen =document.getElementById("imagen").value;
+  productoNuevo.cantidadInicialDisponibleInventario =parseInt(document.getElementById("cantidadInicialDisponibleInventario").value,10);
+  productoNuevo.cantidadMinimaDisponibleInventario =parseInt(document.getElementById("cantidadMinimaDisponibleInventario").value,10);
   let imagen = document.getElementById("imagen").value;
-  document.getElementById('imagenes').src= '../imagenes/.png';
+  productoNuevo.Imagen ="../imagenes/"+imagen+".png";
+
+
 
   let indiceCategoriaActual = localStorage.getItem("indiceParaModificar");
   catalogoCategoriasProductos[indiceCategoriaActual].productos.push(productoNuevo);
@@ -269,12 +273,12 @@ function modificarProducto(){
   catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].categoria = document.getElementById("categoria").value;
   catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].ubicacion = document.getElementById("ubicacion").value;
   catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].descripcion = document.getElementById("descripcion").value;
-  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].precioEntradas = document.getElementById("precioEntradas").value;
-  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].precioSalidas = document.getElementById("precioSalidas").value;
-  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].unidades = document.getElementById("unidades").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].precioEntradas = parseInt(document.getElementById("precioEntradas").value, 10);
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].precioSalidas = parseInt(document.getElementById("precioSalidas").value,10);
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].unidades = parseInt(document.getElementById("unidades").value,10);
   catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].presentacion = document.getElementById("presentacion").value;
-  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].cantidadInicialDisponibleInventario = document.getElementById("cantidadInicialDisponibleInventario").value;
-  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].cantidadMinimaDisponibleInventario = document.getElementById("cantidadMinimaDisponibleInventario").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].cantidadInicialDisponibleInventario = parseInt(document.getElementById("cantidadInicialDisponibleInventario").value,10);
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].cantidadMinimaDisponibleInventario = parseInt(document.getElementById("cantidadMinimaDisponibleInventario").value,10);
   catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].Imagen = document.getElementById("imagen").value;
   localStorage.setItem("catalogoCategoriasProductos", JSON.stringify(catalogoCategoriasProductos));
 
