@@ -210,8 +210,12 @@ table{
   margin-bottom: 10px;
 }
 
+tr, th, td{
+  margin: 5px;
+}
+
 td{
-  margin:0px;
+  
   background-color: rgb(173, 215, 255);
   text-align: center;
   border-radius: 5px;

@@ -4,6 +4,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   var catalogoClientes = [];
   var catalogoProveedores = [];
   var catalogoCategoriasProductos = [];
+  var operacionesEntrada = [];
 
   //----------------Creando clientes:------------------------------------------
   var cliente1 = {
@@ -211,6 +212,12 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   categoriaEncontrada.productos.push(computadores1,computadores2);
 
   localStorage.setItem('catalogoCategoriasProductos',JSON.stringify(catalogoCategoriasProductos));
+
+  //------------------------------------------------------------------------------------------
+  //INICIALIZAR AQUÍ LA CLAVE VALOR PARA LAS OPERACIONES DE ENTRADA
+
+
+
 }
 
 //---------------------------------------------------------------------------------
@@ -330,7 +337,7 @@ function verificarAbastecimiento(){
       //Si unidades <= 3
       if (categoriaActual.productos[x].unidades<=categoriaActual.productos[x].cantidadMinimaDisponibleInventario) {
 
-         txt+="<tr>"+"<td>"+categoriaActual.productos[x].nombre+"</td>"+"<td>"+categoriaActual.productos[x].unidades+"</td>"+"</tr>";
+         txt+="<tr>"+"<td>"+categoriaActual.productos[x].nombre+"</td>"+"<td>"+categoriaActual.productos[x].unidades+"</td>"+"<td>"+categoriaActual.productos[x].cantidadMinimaDisponibleInventario+"</td>"+"</tr>";
 
       }
     }
@@ -341,6 +348,7 @@ function verificarAbastecimiento(){
        <tr>
          <th scope="col">Productos</th>
          <th scope="col">Cantidad</th>
+         <th scope="col">Umbral Minimo</th>
        </tr>
        ${txt}
      </table>

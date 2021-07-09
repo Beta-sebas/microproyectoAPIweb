@@ -46,25 +46,22 @@
       <div class="contenedorInformacion">
         <div class="registrarinfosup">
           <div class="tituloinfo">
-            <h3>Indique el producto que ingresa</h3>
+            <h3>Escoja primero una Categoría y luego el producto que está entrando:</h3>
+          </div>
+          <div class="labels">
+            <h3>Categoría:</h3>
+          </div>
+          <div class="llenables">
+            <select class="categoria" id="categorias" onchange="llenarProductos()" name="producto">
+            </select>
           </div>
           <div class="labels">
             <h3>Producto</h3>
           </div>
           <div class="llenables">
-            <select class="producto" name="producto">
+            <select class="producto" id="productos" name="producto">
               <option value="" selected="selected"> - selecciona -</option>
-              <option value="1">producto 1</option>
-              <option value="2">producto 2</option>
-              <option value="3">producto 3</option>
-              <option value="4">producto 4</option>
             </select>
-          </div>
-          <div class="labels">
-            <h3>Nombre de producto</h3>
-          </div>
-          <div class="llenables">
-            <input type="text" name="nombreproducto" value="" placeholder="Digite Información">
           </div>
         </div>
         <div class="registrarinfomed">
@@ -72,7 +69,7 @@
             <h3>Cantidad</h3>
           </div>
           <div class="llenables desplegable1">
-            <input type="text" name="cantidad" value="" placeholder="Digite Información">
+            <input type="number" name="cantidad" value="" placeholder="Cantidad que ingresa">
           </div>
         </div>
           <div class="registrarinfoinf">
@@ -80,12 +77,8 @@
               <h3>Proveedor</h3>
             </div>
             <div class="llenables">
-              <select class="proveedor" name="proveedor">
+              <select class="proveedores" id="proveedores" name="proveedor">
                 <option value="" selected="selected"> - selecciona -</option>
-                <option value="1">proveedor 1</option>
-                <option value="2">proveedor 2</option>
-                <option value="3">proveedor 3</option>
-                <option value="4">proveedor 4</option>
               </select>
             </div>
           </div>
@@ -103,4 +96,5 @@
 
   </body>
   <script src="../js/menuResponsive.js" charset="utf-8"></script>
+  <script src="../js/operacion_entrada.js" charset="utf-8"></script>
 </html>
