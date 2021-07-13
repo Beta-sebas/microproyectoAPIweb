@@ -4,6 +4,8 @@ let listaCategorias = document.getElementById("categorias");
 let listaProductos = document.getElementById("productos");
 let listaProveedores = document.getElementById("proveedores");
 
+let arregloCompra = [];
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -56,6 +58,36 @@ function llenarProveedores(){
         listaProveedores.innerHTML+=
         `
         <option value="${indiceActual}">${proveedorActual.nombre} ${proveedorActual.apellido}</option>
+        `;
+    });
+}
+
+function agregarProductoALaCompra() {
+    let categoriaEscogida = document.getElementById("categorias");
+    let txtCategoria = categoriaEscogida.options[categoriaEscogida.selectedIndex].text;
+    let productoEscogido = document.getElementById("productos");
+    let txtProducto = productoEscogido.options[productoEscogido.selectedIndex].text;
+    let cantidad = document.getElementById("cantidad").value;
+
+    let compraIndividual = {
+        categoria:txtCategoria,
+        producto:txtProducto,
+        cantidad:cantidad
+    };
+
+    arregloCompra.push(compraIndividual);
+    categoriaEscogida.value="";
+    llenarProductos();
+    document.getElementById("cantidad").value=0;
+    
+}
+
+
+function imprimirProductosCompra() {
+    document.getElementById("contenedorListaCompras").innerHTML="";
+    arregloCompra.forEach((compraIndividualActual, indiceActual) => {
+        document.getElementById("contenedorListaCompras").innerHTML=
+        `
         `;
     });
 }

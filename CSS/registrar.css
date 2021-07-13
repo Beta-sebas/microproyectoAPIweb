@@ -153,6 +153,130 @@ img {
 .enlaces a:hover{
   background-color: rgb(2, 119, 48);
 }
+.labels{
+  width: 30%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.llenables{
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+
+.llenables input, .llenables select {
+  width: 95%;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid rgb(175, 175, 175);
+  padding: 7px;
+  transition: width 0.4s ease-in-out;
+}
+
+.llenables input:focus {
+  background-color: lightblue;
+  outline: none; 
+  width: 100%;
+}
+
+.contenedorBotonAgregar{
+  display: flex;
+  justify-content: center;
+}
+.botonAgregar{
+  margin: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: rgb(78, 163, 78);
+  color: rgb(255, 255, 255);
+  font-family: sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: 0.2s ease all;
+}
+
+.botonAgregar:hover{
+  background-color: rgb(109, 224, 109);
+}
+
+.contenedorListaCompras{
+  padding: 20px 5px;
+}
+
+table{
+  background-color: rgb(78, 163, 78);
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 10px;
+  color: white;
+  border-collapse: separate;
+  border-spacing: 10px 10px;
+}
+
+td{
+  
+  background-color: rgb(151, 214, 151);
+  text-align: center;
+  border-radius: 5px;
+  padding: 3px;
+  color: rgb(36, 36, 36);
+}
+
+.transparente{
+  background-color:rgba(255, 255, 255, 0);
+  width: 20px;
+}
+
+.botonEliminar{
+  background-color: rgb(192, 44, 44);
+  color: #e4e4e4;
+  border: none;
+  padding: 10px;
+  border-radius: 20%;
+  transition: 0.2s ease all;
+}
+.botonEliminar:hover{
+  background-color: rgb(233, 63, 63);
+}
+
+.botonFinalizar{
+  margin: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: rgb(78, 163, 78);
+  color: rgb(255, 255, 255);
+  font-family: sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: 0.2s ease all;
+}
+
+.botonFinalizar:hover{
+  background-color: rgb(109, 224, 109);
+}
+
+.botonCancelar{
+  margin: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: rgb(192, 46, 46);
+  color: rgb(255, 255, 255);
+  font-family: sans-serif;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: 0.2s ease all;
+}
+
+.botonCancelar:hover{
+  background-color: rgb(255, 46, 46);
+}
 
 @media(max-width: 600px){
   .ocultar-peq{
@@ -161,6 +285,11 @@ img {
   .nav{
     height: 40px;
   }
+
+  table{
+    font-size: 12px;
+  }
+
   .enlaces{
     display:flex;
     align-items: stretch;
@@ -195,6 +324,13 @@ img {
     .titulopage{
       margin: 20px;
     }
+    .titulopage h2{
+      font-size: 2em;
+    }
+
+    .tituloinfo h3{
+      font-size: 20px;
+    }
 
     .nav{
       display: flex;
@@ -214,9 +350,30 @@ img {
       margin-bottom: 5px;
     }
 
-    .llenables, .labels{
-      width: 50%;
+    .labels{
+      width: 25%;
+      font-size: 16px;
     }
+    .llenables{
+      width: 75%;
+      margin-bottom: 10px;
+    }
+    
+
+    .llenables input, .llenables select {
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .contenedorBotonAgregar{
+      display: flex;
+      justify-content: center;
+    }
+
+    .contenedorListaCompras{
+      padding: 20px 100px;
+    }
+
 
    .registrarinfosup, .registrarinfomed, .registrarinfoinf{
      width:80%;
