@@ -84,7 +84,7 @@ function agregarProductoALaCompra() {
     let txtCategoria = categoriaEscogida.options[categoriaEscogida.selectedIndex].text;
     let productoEscogido = document.getElementById("productos");
     let txtProducto = productoEscogido.options[productoEscogido.selectedIndex].text;
-    let cantidad = document.getElementById("cantidad").value;
+    let cantidad = parseInt(document.getElementById("cantidad").value,10);
 
     let compraIndividual = {
         categoria:txtCategoria,
@@ -197,4 +197,12 @@ function operacionEntrada(){
   operacionesEntrada.push(compraFinal);
   localStorage.setItem("operacionesEntrada", JSON.stringify(operacionesEntrada));
 
+  let catalogoCategoriasProductos = JSON.parse(localStorage.getItem("catalogoCategoriasProductos"));
+  arregloCompra.forEach((compraIndividualActual, indiceActual) => {
+    let categoriaEncontrada = catalogoCategoriasProductos.find(element => element.nombreCategoria==compraIndividualActual.categoria);
+    let productoEncontrado = categoriaEncontrada.productos.find(element => element.nombre==compraIndividualActual.producto);
+    productoEncontrado.unidades+= compraIndividualActual.cantidad;
+  });
+  localStorage.setItem("catalogoCategoriasProductos", JSON.stringify(catalogoCategoriasProductos));
+  window.location.href = "home.html";
 }

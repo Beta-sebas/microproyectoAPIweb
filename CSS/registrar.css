@@ -110,9 +110,23 @@ img {
 }
 
 .titulopage{
+  width: 100%;
+  display: flex;
+  justify-content: center;
   text-align: center;
   margin-bottom: 10px;
+  margin-top: 10px;
+  
 }
+
+.titulopage h2{
+  background-color: rgb(78, 163, 78);
+  border-radius: 10px;
+  padding: 5px;
+  color: white;
+  width: 100%;
+}
+
 .contenedorInformacion{
   display: flex;
   flex-flow: column wrap;
@@ -352,6 +366,7 @@ td{
     }
     .titulopage h2{
       font-size: 2em;
+      width: 50%;
     }
 
     .tituloinfo h3{
