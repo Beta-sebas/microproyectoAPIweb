@@ -177,9 +177,35 @@ img {
 
 .llenables input:focus {
   background-color: lightblue;
-  outline: none; 
+  outline: none;
   width: 100%;
 }
+
+/*///-------------------------Alerta de validacion ------------------------ */
+.alertaProducto{
+  background-color: rgb(201, 29, 29);
+  color: white;
+  width: 100%;
+  display: none;
+  padding-left: 10px;
+}
+
+.alertaProducto.active{
+  display: block;
+}
+
+.alertaProveedor{
+  background-color: rgb(201, 29, 29);
+  color: white;
+  width: 100%;
+  display: none;
+  padding-left: 10px;
+}
+
+.alertaProveedor.active{
+  display: block;
+}
+/* ///--------------------------------------------------------------------------------*/
 
 .contenedorBotonAgregar{
   display: flex;
@@ -219,7 +245,7 @@ table{
 }
 
 td{
-  
+
   background-color: rgb(151, 214, 151);
   text-align: center;
   border-radius: 5px;
@@ -358,7 +384,7 @@ td{
       width: 75%;
       margin-bottom: 10px;
     }
-    
+
 
     .llenables input, .llenables select {
       width: 100%;

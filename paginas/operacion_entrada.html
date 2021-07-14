@@ -45,7 +45,7 @@
       </div>
 
       <div class="contenedorInformacion">
-        <div class="registrarinfosup">
+        <div class="registrarinfosup" onclick="quitarAlerta()">
           <div class="tituloinfo">
             <h3>Escoja primero una Categoría y luego el producto que está entrando:</h3>
           </div>
@@ -65,7 +65,7 @@
             </select>
           </div>
         </div>
-        <div class="registrarinfomed">
+        <div class="registrarinfomed"  onclick="quitarAlerta()">
           <div class="labels titulomed">
             <h3>Cantidad:</h3>
           </div>
@@ -73,10 +73,13 @@
             <input type="number" name="cantidad" value="" id="cantidad" placeholder="Cantidad que ingresa">
           </div>
         </div>
-        <div class="contenedorBotonAgregar">
-          <input type="button" name="agregar" class="botonAgregar" id="botonAgregar" onclick="agregarProductoALaCompra()" value="Agregar a la Compra">
+        <div class="alertaProducto" id="alertaProducto">
+          <h4>Ingrese Los Campos Requeridos Correctamente</h4>
         </div>
-        <div class="registrarinfoinf">
+        <div class="contenedorBotonAgregar">
+          <input type="button" name="agregar" class="botonAgregar" id="botonAgregar" onclick="validarProducto()" value="Agregar a la Compra">
+        </div>
+        <div class="registrarinfoinf" onclick="quitarAlertaProveedor()">
           <div class="labels">
             <h3>Proveedor</h3>
           </div>
@@ -87,42 +90,14 @@
           </div>
         </div>
         <div class="contenedorListaCompras" id="contenedorListaCompras">
-          <table>
-            <thead>
-              <tr>
-                <th>Producto</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th>Eliminar</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Redmi note 9</td>
-                <td>2</td>
-                <td>1600000</td>
-                <td class="transparente"><input type="button" class="botonEliminar" name="eliminar" value="x"></td>
-              </tr>
-              <tr>
-                <td>Samsung 49 pulg</td>
-                <td>3</td>
-                <td>8000000</td>
-                <td class="transparente"><input type="button" class="botonEliminar" name="eliminar" value="x"></td>
-              </tr>
-              <tr>
-                <td colspan="2">TOTAL:</td>
-                <td>300000</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
-
-          
       </div>
-
+      <div class="alertaProveedor" id="alertaProveedor">
+        <h4>Escoja Un Proveedor </h4>
+      </div>
       <div class="contenedorsegundario">
         <div class="botones">
-          <a href="Home.html"><input type="button" class="botonFinalizar" id="botonFinalizar" name="guardar" value="Finalizar Compra"></a>
+          <a><input type="button" class="botonFinalizar" id="botonFinalizar" name="guardar" value="Finalizar Compra" onclick="validarProveedor()"></a>
           <a href="Home.html"><input type="button" class="botonCancelar" name="cancelar" value="Cancelar"></a>
         </div>
       </div>
