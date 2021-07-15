@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var usuarios = [];
 
     let admin = {
+      usuario:"JuanPerez",
       email:"juan@gmail.com",
       password:1234,
       rol:"administrador",
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     let operario = {
+      usuario:"PedroMendez",
       email:"pedro@gmail.com",
       password:3456,
       rol:"operario",

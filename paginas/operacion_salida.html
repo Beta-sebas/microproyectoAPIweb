@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <!--<meta name="description" content="un taller a solucionar">-->
   <title>Catálogos : Categoria </title>
-  <link rel="stylesheet" href="../CSS/operacion.css">
+  <link rel="stylesheet" href="../CSS/operacion_salida.css">
   <!--<link rel="shortcut icon" type="image/x-icon" href="imagenes\favicon.ico">-->
   <!-- <link rel="shortcut icon" href="http://www.wikipedia.org/favicon.ico" /> -->
   </head>
@@ -44,110 +44,84 @@
       </div>
 
       <div class="contenedorInformacion">
-        <div class="registrarinfosup">
-          <div class="tablasup">
-            <table>
-              <thead>
-                <tr>
-                  <th>Producto</th>
-                  <th>Cantidad</th>
-                  <th>Eliminar de la lista</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Producto 1</td>
-                  <td>2</td>
-                  <td><input type="button" name="eliminar" value="Eliminar"></td>
-                </tr>
-                <tr>
-                  <td>Producto 2</td>
-                  <td>3</td>
-                  <td><input type="button" name="eliminar" value="Eliminar"></td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="registrarinfosup" onclick="quitarAlerta()">
+          <div class="tituloinfo">
+            <h3>Escoja primero una Categoría y luego el producto:</h3>
+          </div>
+          <div class="labels">
+            <h3>Categoría:</h3>
+          </div>
+          <div class="llenables">
+            <select class="categoria" id="categorias" onchange="llenarProductos()" name="producto">
+            </select>
+          </div>
+          <div class="labels">
+            <h3>Producto:</h3>
+          </div>
+          <div class="llenables">
+            <select class="producto" id="productos" name="producto">
+              <option value="" selected="selected"> - selecciona -</option>
+            </select>
           </div>
         </div>
-        <div class="registrarinfomed">
-          <div class="parteIzq">
-              <div class="labels titulomed">
-                <h3>Producto</h3>
-              </div>
-              <div class="llenables desplegable1">
-                <select class="producto" name="producto">
-                  <option value="" selected="selected"> - selecciona un producto -</option>
-                  <option value="1">producto 1</option>
-                  <option value="2">producto 2</option>
-                  <option value="3">producto 3</option>
-                  <option value="4">producto 4</option>
-                </select>
-              </div>
-              <div class="labels">
-                <h3>Cantidad</h3>
-              </div>
-              <div class="llenables">
-                <input type="text" name="cantidadproducto" value="" placeholder="Ingrese la cantidad">
-              </div>
+        <div class="registrarinfomed"  onclick="quitarAlerta()">
+          <div class="labels titulomed">
+            <h3>Cantidad:</h3>
           </div>
-          <div class="ParteDer botonmed">
-            <input type="button" name="agregarlista" value="Agregar A La Lista">
+          <div class="llenables desplegable1">
+            <input type="number" name="cantidad" value="" id="cantidad" placeholder="Cantidad que ingresa">
           </div>
-
+        </div>
+        <div class="alertaProducto" id="alertaProducto">
+          <h4>Ingrese Los Campos Requeridos Correctamente</h4>
+        </div>
+        <div class="contenedorBotonAgregar">
+          <input type="button" name="agregar" class="botonAgregar" id="botonAgregar" onclick="validarProducto()" value="Agregar a la Compra">
+        </div>
+        
+        <div class="contenedorListaCompras" id="contenedorListaCompras">
         </div>
 
-          <div class="registrarinfoinf">
-            <div class="labels">
-              <h3>Seleccionar cliente</h3>
-            </div>
-            <div class="llenables">
-              <select class="cliente" name="cliente">
-                <option value="" selected="selected"> - selecciona un cliente -</option>
-                <option value="1">cliente 1</option>
-                <option value="2">cliente 2</option>
-                <option value="3">cliente 3</option>
-                <option value="4">cliente 4</option>
-              </select>
-            </div>
-            <div class="botoninf">
-              <input type="button" name="imprimir" value="Imprimir cotización">
-            </div>
-          </div>
+        <div class="contenedorBotonAgregar">
+          <input type="button" name="imprimir" class="botonAgregar" id="botonCotizacion" onclick="validarCotizacion()" value="Generar cotización">
+        </div>
+      </div>
+      <div class="registrarinfoinf" onclick="quitarAlertaCliente()">
+        <div class="labels">
+          <h3>Seleccione el cliente:</h3>
+        </div>
+        <div class="llenables">
+          <select class="clientes" id="clientes" name="proveedor">
+            <option value="" selected="selected"> - selecciona -</option>
+          </select>
+        </div>
       </div>
 
-      <div class="contenedorsegundario">
-        <div class="InfoPago">
+      <div class="contenedorsegundario" >
+        <div class="registrarinfoinf" onclick="quitarAlertaCliente()">
           <div class="labels titulosegundario">
             <h3>Método de pago</h3>
           </div>
           <div class="llenables listametodos">
-            <select class="metodopago" name="metodopago">
+            <select class="metodopago" id="metodopago" name="metodopago">
               <option value="" selected="selected"> - Opciones -</option>
-              <option value="1">Método 1</option>
-              <option value="2">Método 2</option>
-              <option value="3">Método 3</option>
-              <option value="4">Método 4</option>
-            </select>
-          </div>
-          <div class="labels titulosegundario2">
-            <h3>Responsable</h3>
-          </div>
-          <div class="llenables listaresponsables">
-            <select class="responsable" name="responsable">
-              <option value="" selected="selected"> - Opciones -</option>
-              <option value="1">Responsable 1</option>
-              <option value="2">Responsable 2</option>
-              <option value="3">Responsable 3</option>
-              <option value="4">Responsable 4</option>
+              <option value="1">PSE</option>
+              <option value="2">Debito/Crédito</option>
+              <option value="3">Efectivo</option>
             </select>
           </div>
         </div>
+        <div class="alertaProveedor" id="alertaCliente">
+          <h4>Escoja Un Cliente y Metodo de Pago </h4>
+        </div>
           <div class="botonespago">
-            <a href="home.html"><input type="button" name="guardar" value="Generar orden de trabajo"></a>
-            <a href="home.html"><input type="button" name="cancelar" value="Cancelar"></a>
+            <input type="button" name="guardar" class="botonFinalizar" id="botonFinalizar" onclick="validarCliente()" value="Generar orden de trabajo">
+            <a href="home.html"><input type="button" class="botonCancelar" name="cancelar" value="Cancelar"></a>
           </div>
       </div>
     </div>
   </body>
   <script src="../js/menuResponsive.js" charset="utf-8"></script>
+  <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js" charset="utf-8"></script>
+  <script src="../js/operacion_salida.js" charset="utf-8"></script>
 </html>
