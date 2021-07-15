@@ -350,7 +350,7 @@ td{
     justify-content: center;
   }
 
-  .enlaces{
+  .enlaces{ 
     display: flex;
     align-items: stretch;
     flex-flow: row wrap;

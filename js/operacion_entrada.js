@@ -203,6 +203,6 @@ function operacionEntrada(){
     let productoEncontrado = categoriaEncontrada.productos.find(element => element.nombre==compraIndividualActual.producto);
     productoEncontrado.unidades+= compraIndividualActual.cantidad;
   });
-  localStorage.setItem("catalogoCategoriasProductos", JSON.stringify(catalogoCategoriasProductos));
+  localStorage.setItem("catalogoCategoriasProductos", JSON.stringify(catalogoCategoriasProductos)); 
   window.location.href = "home.html";
 }
