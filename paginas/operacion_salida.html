@@ -25,7 +25,7 @@
           <span class="aqui ocultar-peq efecto" href="#">Operación Salida</span>
           <a class="ocultar-peq efecto rol"href="reportes.html">Reportes</a>
           <a class="ocultar-peq efecto"href="ordenes_trabajo.html">Ordenes de trabajo</a>
-        </div> 
+        </div>
       </div>
 
       <div class="nav-movil">
@@ -44,41 +44,65 @@
       </div>
 
       <div class="contenedorInformacion">
+
+        <div class="registrarinfosup" onclick="quitarAlerta()">
+          <div class="labels">
+            <h3>Seleccione el cliente<span class="rojo">*</span>:</h3>
+          </div>
+          <div class="llenables">
+            <select class="clientes" id="clientes" onchange="verificarOrdenes()" name="proveedor">
+              <option value="" selected="selected"> - selecciona -</option>
+            </select>
+          </div>
+        </div>
+
+
         <div class="registrarinfosup" onclick="quitarAlerta()">
           <div class="tituloinfo">
-            <h3>Escoja primero una Categoría y luego el producto:</h3>
+            <h3>Escoja una Categoría y luego el producto:</h3>
           </div>
           <div class="labels">
-            <h3>Categoría:</h3>
+            <h3>Categoría<span class="rojo">*</span>:</h3>
           </div>
           <div class="llenables">
             <select class="categoria" id="categorias" onchange="llenarProductos()" name="producto">
+              <option value="" selected="selected"> - selecciona -</option>
             </select>
           </div>
           <div class="labels">
-            <h3>Producto:</h3>
+            <h3>Producto<span class="rojo">*</span>:</h3>
           </div>
           <div class="llenables">
-            <select class="producto" id="productos" name="producto">
+            <select class="producto" id="productos" onchange="validarCantidad()" name="producto">
               <option value="" selected="selected"> - selecciona -</option>
             </select>
           </div>
         </div>
         <div class="registrarinfomed"  onclick="quitarAlerta()">
           <div class="labels titulomed">
-            <h3>Cantidad:</h3>
+            <h3>Cantidad<span class="rojo">*</span>:</h3>
           </div>
           <div class="llenables desplegable1">
-            <input type="number" name="cantidad" value="" id="cantidad" placeholder="Cantidad que ingresa">
+            <input type="number" name="cantidad" value="" id="cantidad" placeholder="Ingrese la Cantidad">
           </div>
         </div>
+
+<!--///////////////////////////////////////////-ALERTAS------------------------------->
         <div class="alertaProducto" id="alertaProducto">
           <h4>Ingrese Los Campos Requeridos Correctamente</h4>
         </div>
+        <div class="alertaProducto" id="alertaCantidad">
+          <h4>Ingrese Una Cantidad Valida</h4>
+        </div>
+        <div class="alertaProducto" id="alertaCotizacion">
+          <h4>Ingrese Un Cliente y Productos Validos Para Generar Una Cotizacion</h4>
+        </div>
+  <!--/////////////////////////////////////////////-Fin------------------------------->
+
         <div class="contenedorBotonAgregar">
           <input type="button" name="agregar" class="botonAgregar" id="botonAgregar" onclick="validarProducto()" value="Agregar a la Compra">
         </div>
-        
+
         <div class="contenedorListaCompras" id="contenedorListaCompras">
         </div>
 
@@ -86,21 +110,11 @@
           <input type="button" name="imprimir" class="botonAgregar" id="botonCotizacion" onclick="validarCotizacion()" value="Generar cotización">
         </div>
       </div>
-      <div class="registrarinfoinf" onclick="quitarAlertaCliente()">
-        <div class="labels">
-          <h3>Seleccione el cliente:</h3>
-        </div>
-        <div class="llenables">
-          <select class="clientes" id="clientes" name="proveedor">
-            <option value="" selected="selected"> - selecciona -</option>
-          </select>
-        </div>
-      </div>
 
       <div class="contenedorsegundario" >
-        <div class="registrarinfoinf" onclick="quitarAlertaCliente()">
+        <div class="registrarinfoinf" onclick="quitarAlerta()">
           <div class="labels titulosegundario">
-            <h3>Método de pago</h3>
+            <h3>Método de pago<span class="rojo">*</span>:</h3>
           </div>
           <div class="llenables listametodos">
             <select class="metodopago" id="metodopago" name="metodopago">
@@ -111,11 +125,16 @@
             </select>
           </div>
         </div>
-        <div class="alertaProveedor" id="alertaCliente">
-          <h4>Escoja Un Cliente y Metodo de Pago </h4>
+<!--////////////////////////////////ALERTAS//////////////////////////// -->
+        <div class="alertaProveedor" id="alertaPago">
+          <h4>Escoja Un Metodo de Pago </h4>
         </div>
+        <div class="alertaProveedor" id="alertaPagoCliente">
+          <h4>Escoja Un Cliente </h4>
+        </div>
+<!--///////////////////////////////////FIN////////////////////////////// -->
           <div class="botonespago">
-            <input type="button" name="guardar" class="botonFinalizar" id="botonFinalizar" onclick="validarCliente()" value="Generar orden de trabajo">
+            <input type="button" name="guardar" class="botonFinalizar" id="botonFinalizar" onclick="validarPago()" value="Generar orden de trabajo">
             <a href="home.html"><input type="button" class="botonCancelar" name="cancelar" value="Cancelar"></a>
           </div>
       </div>

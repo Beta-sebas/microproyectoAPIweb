@@ -116,7 +116,7 @@ img {
   text-align: center;
   margin-bottom: 10px;
   margin-top: 10px;
-  
+
 }
 
 .titulopage h2{
@@ -175,6 +175,7 @@ img {
 .tituloinfo{
   width: 100%;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .enlaces a:hover{
@@ -376,7 +377,7 @@ td{
     justify-content: center;
   }
 
-  .enlaces{ 
+  .enlaces{
     display: flex;
     align-items: stretch;
     flex-flow: row wrap;
@@ -397,6 +398,7 @@ td{
 
     .tituloinfo h3{
       font-size: 20px;
+      margin-top: 20px;
     }
 
     .nav{
