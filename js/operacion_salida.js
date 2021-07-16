@@ -34,22 +34,41 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function verificarOrdenes() {
-
+  document.getElementById("contenedorListaCompras").innerHTML ="";
+  let bandera=2;
   let txtCliente = listaClientes.options[listaClientes.selectedIndex].text;
   let ordenesTrabajo = JSON.parse(localStorage.getItem("operacionesSalida"));
   let ordenesEnProceso = [];
   ordenesTrabajo.forEach((ordenActual, indiceActual) => {
     if (ordenActual.estado=="EnProceso") {
       ordenesEnProceso.push(ordenActual);
-      console.log(ordenEnproceso.length);
     }
   });
-  if (ordenEnproceso.length=0) {
+  localStorage.setItem("pruebadeordenes", JSON.stringify(ordenesEnProceso));
+  let text = "";
+  ordenesEnProceso.forEach((item, i) => {
+    text += Object.values(item)+ "";
+  });
+  //document.getElementById("contenedorListaCompras").innerHTML = text;
+
+  ordenesEnProceso.forEach((item, i) => {
+    if (item.cliente==txtCliente) {
+    bandera=2;
+    }
+    else {
+    bandera=1;
+    }
+  });
+    console.log(bandera);
+
+  if (bandera==1) {
+    console.log("hola");
     llenarCategorias();
   }
   else {
     let ordenEncontrada = ordenesEnProceso.find(element=> element.cliente==txtCliente);
     arregloCompra = ordenEncontrada.productos;
+    console.log("holis");
     imprimirProductosCompra();
     llenarCategorias();
   }
@@ -291,9 +310,8 @@ function operacionSalida(){
   ventaFinal.metodoPago = txtMetodoPago;
   ventaFinal.responsable = usuarioEncontrado.usuario;
   ventaFinal.estado = "Terminado";
-  let numeroDeOpercaion = JSON.parse(localStorage.getItem("operacionesSalida"));
-  ventaFinal.numeroVenta = numeroDeOpercaion.length+1;
   let operacionesSalida = JSON.parse(localStorage.getItem("operacionesSalida"));
+  ventaFinal.numeroVenta = operacionesSalida.length+1;
   operacionesSalida.push(ventaFinal);
   localStorage.setItem("operacionesSalida", JSON.stringify(operacionesSalida));
 
@@ -334,10 +352,8 @@ function ordenEnproceso(){
   ventaFinal.metodoPago = txtMetodoPago;
   ventaFinal.responsable = usuarioEncontrado.usuario;
   ventaFinal.estado = "EnProceso";
-
-  let numeroDeOpercaion = JSON.parse(localStorage.getItem("operacionesSalida"));
-  ventaFinal.numeroVenta = numeroDeOpercaion.length+1;
   let operacionesSalida = JSON.parse(localStorage.getItem("operacionesSalida"));
+  ventaFinal.numeroVenta = operacionesSalidan.length+1;
   operacionesSalida.push(ventaFinal);
   localStorage.setItem("operacionesSalida", JSON.stringify(operacionesSalida));
 
