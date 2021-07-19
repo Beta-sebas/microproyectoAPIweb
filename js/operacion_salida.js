@@ -115,8 +115,6 @@ function llenarProductos(){
     }
 }
 
-
-
 function llenarClientes(){
     listaClientes.innerHTML="";
     listaClientes.innerHTML=`<option value="" selected="selected"> - selecciona -</option>`;
