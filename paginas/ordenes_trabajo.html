@@ -45,61 +45,44 @@
 
       <div class="contenedorSecundario">
 
-          <div class="botonescatalogos">
-
-            <input class="barra" type="text" name="busqueda" value=""placeholder="Digite nombre del cliente">
-            <input class="botones" type="button" name="button" value="Buscar">
-
+        <div class="registrarinfosup">
+          <div class="labels">
+            <h3>Seleccione el cliente<span class="rojo">*</span>:</h3>
           </div>
-
+          <div class="llenables">
+            <select class="clientes" id="clientes" name="cliente">
+              <option value="" selected="selected"> - selecciona -</option>
+            </select>
+          </div>
+        </div>
 
         <div class="contenedorInformacion">
+
           <div class="itemInformacion categoria1">
             <div class="parteIzquierdaitemInformacion">
               <div class="info titulo">
-                <h2>Orden 1234</h2>
+                <h2>Nmero de Orden: 2</h2>
               </div>
               <div class="tituloproceso">
                 <h3>En proceso</h3>
               </div>
               <div class="info descripcion">
                 <h3>Cliente: juanito</h3>
-                <h3>fecha</h3>
+                <h3>fecha: 02/20/2021</h3>
               </div>
             </div>
 
             <div class="parteDerechaitemInformacion">
-              <div class="botonModificar">
-                  <input type="button" name="Modificar" value="Modificar">
+              <div>
+                <a class="botonModificar" onclick=""><img class="imgModificar" src="../imagenes/lapiz.png" alt="Modificar" title="Modificar"></a>
               </div>
-              <div class="botonEliminar">
-                  <input type="button" name="Eliminar" value="Eliminar">
+              <div>
+                <a class="botonEliminar" href="#" onclick=""><img class="imgEliminar" src="../imagenes/eliminar.png" alt="Eliminar" title="Eliminar"></a>
               </div>
             </div>
+            </div>
           </div>
-
-          <div class="itemInformacion categoria2">
-              <div class="parteIzquierdaitemInformacion">
-                <div class="info titulo">
-                  <h2>Orden 2456</h2>
-                </div>
-                <div class="tituloproceso">
-                  <h3>Terminada</h3>
-                </div>
-                <div class="info descripcion">
-                  <h3>Cliente: pedrito</h3>
-                  <h3>fecha</h3>
-                </div>
-              </div>
-              <div class="parteDerechaitemInformacion">
-                <div class="botonModificar">
-                    <input type="button" name="Modificar" value="Modificar">
-                </div>
-                <div class="botonEliminar">
-                    <input type="button" name="Eliminar" value="Eliminar">
-                </div>
-              </div>
-          </div>
+          
         </div>
       </div>
     </div>

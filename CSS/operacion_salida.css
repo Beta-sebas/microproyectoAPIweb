@@ -345,6 +345,10 @@ td{
   width: 100%;
 }
 
+.rojo{
+  color: #ff0000;
+}
+
 @media(max-width: 600px){
   .ocultar-peq{
       display: none;

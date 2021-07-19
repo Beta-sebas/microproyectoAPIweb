@@ -11,6 +11,8 @@ let metodoPago = document.getElementById("metodopago");
 let cajaCantidad = document.getElementById("cantidad");
 let arregloCompra = [];
 let total = 0;
+let actualizar= 1;
+let numeroDeVentaActualizar = -1;
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function verificarOrdenes() {
   document.getElementById("contenedorListaCompras").innerHTML ="";
-  let bandera=2;
+  let bandera=1;
   let txtCliente = listaClientes.options[listaClientes.selectedIndex].text;
   let ordenesTrabajo = JSON.parse(localStorage.getItem("operacionesSalida"));
   let ordenesEnProceso = [];
@@ -45,18 +47,16 @@ function verificarOrdenes() {
     }
   });
   localStorage.setItem("pruebadeordenes", JSON.stringify(ordenesEnProceso));
-  let text = "";
-  ordenesEnProceso.forEach((item, i) => {
-    text += Object.values(item)+ "";
-  });
-  //document.getElementById("contenedorListaCompras").innerHTML = text;
-
+ 
   ordenesEnProceso.forEach((item, i) => {
     if (item.cliente==txtCliente) {
     bandera=2;
+    actualizar = 2;
+    numeroDeVentaActualizar = item.numeroVenta;
     }
     else {
     bandera=1;
+    actualizar = 1;
     }
   });
     console.log(bandera);
@@ -128,9 +128,9 @@ function llenarClientes(){
 
 function descargarCotizacion(){
   const element = document.getElementById("contenedorListaCompras");
-  html2pdf()
-  .from(element)
-  .save("cotizacion");
+  //html2pdf()
+  //.from(element)
+  //.save("cotizacion");
   ordenEnproceso();
 }
 
@@ -309,8 +309,17 @@ function operacionSalida(){
   ventaFinal.responsable = usuarioEncontrado.usuario;
   ventaFinal.estado = "Terminado";
   let operacionesSalida = JSON.parse(localStorage.getItem("operacionesSalida"));
-  ventaFinal.numeroVenta = operacionesSalida.length+1;
-  operacionesSalida.push(ventaFinal);
+  
+  if (actualizar==2){
+    //modificar la posicion de numeroDeVentaActualizar en lo del localStorage
+    ventaFinal.numeroVenta = numeroDeVentaActualizar;
+    operacionesSalida[numeroDeVentaActualizar-1]=ventaFinal;
+  }
+  else{
+    ventaFinal.numeroVenta = operacionesSalida.length+1;
+    operacionesSalida.push(ventaFinal);
+  }
+  
   localStorage.setItem("operacionesSalida", JSON.stringify(operacionesSalida));
 
   let catalogoCategoriasProductos = JSON.parse(localStorage.getItem("catalogoCategoriasProductos"));
@@ -351,8 +360,16 @@ function ordenEnproceso(){
   ventaFinal.responsable = usuarioEncontrado.usuario;
   ventaFinal.estado = "EnProceso";
   let operacionesSalida = JSON.parse(localStorage.getItem("operacionesSalida"));
-  ventaFinal.numeroVenta = operacionesSalidan.length+1;
-  operacionesSalida.push(ventaFinal);
+  
+  if (actualizar==2){
+    //modificar la posicion de numeroDeVentaActualizar en lo del localStorage
+    ventaFinal.numeroVenta = numeroDeVentaActualizar;
+    operacionesSalida[numeroDeVentaActualizar-1]=ventaFinal;
+  }
+  else{
+    ventaFinal.numeroVenta = operacionesSalida.length+1;
+    operacionesSalida.push(ventaFinal);
+  }
   localStorage.setItem("operacionesSalida", JSON.stringify(operacionesSalida));
 
 }

@@ -172,6 +172,36 @@ img {
   height: 0px;
   overflow: hidden;
 }
+
+.labels{
+  width: 30%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.llenables{
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.llenables input, .llenables select {
+  width: 95%;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid rgb(175, 175, 175);
+  padding: 7px;
+  transition: width 0.4s ease-in-out;
+}
+
+.llenables input:focus {
+  background-color: lightblue;
+  outline: none;
+  width: 100%;
+}
+
+
+
 @media(max-width: 600px){
   .ocultar-peq{
       display: none;
@@ -232,7 +262,6 @@ img {
     margin: 20px;
   }
 
-
     .nav{
       display: flex;
       flex-flow: row wrap;
@@ -240,6 +269,21 @@ img {
     }
     .logo1{
       width: 25%;
+    }
+
+    .labels{
+      width: 25%;
+      font-size: 16px;
+    }
+    .llenables{
+      width: 75%;
+      margin-bottom: 10px;
+    }
+
+
+    .llenables input, .llenables select {
+      width: 100%;
+      font-size: 16px;
     }
 
     /*======================================================*/
@@ -252,7 +296,4 @@ img {
     .nav{
       margin-bottom: 5px;
     }
-
-
-
 }
