@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function verificarOrdenes() {
   document.getElementById("contenedorListaCompras").innerHTML ="";
   let bandera=1;
+  arregloCompra=[];
   let txtCliente = listaClientes.options[listaClientes.selectedIndex].text;
   let ordenesTrabajo = JSON.parse(localStorage.getItem("operacionesSalida"));
   let ordenesEnProceso = [];
@@ -49,6 +50,8 @@ function verificarOrdenes() {
   localStorage.setItem("pruebadeordenes", JSON.stringify(ordenesEnProceso));
  
   ordenesEnProceso.forEach((item, i) => {
+    console.log(item.cliente);
+    console.log(txtCliente);
     if (item.cliente==txtCliente) {
     bandera=2;
     actualizar = 2;
@@ -62,13 +65,13 @@ function verificarOrdenes() {
     console.log(bandera);
 
   if (bandera==1) {
-    console.log("hola");
+    console.log("no en proceso");
     llenarCategorias();
   }
   else {
     let ordenEncontrada = ordenesEnProceso.find(element=> element.cliente==txtCliente);
     arregloCompra = ordenEncontrada.productos;
-    console.log("holis");
+    console.log("en proceso");
     imprimirProductosCompra();
     llenarCategorias();
   }
@@ -367,7 +370,9 @@ function ordenEnproceso(){
     operacionesSalida[numeroDeVentaActualizar-1]=ventaFinal;
   }
   else{
-    ventaFinal.numeroVenta = operacionesSalida.length+1;
+      ventaFinal.numeroVenta = operacionesSalida.length+1;
+    
+    
     operacionesSalida.push(ventaFinal);
   }
   localStorage.setItem("operacionesSalida", JSON.stringify(operacionesSalida));
