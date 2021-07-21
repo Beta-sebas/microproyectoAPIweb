@@ -50,42 +50,19 @@
             <h3>Seleccione el cliente<span class="rojo">*</span>:</h3>
           </div>
           <div class="llenables">
-            <select class="clientes" id="clientes" name="cliente">
+            <select class="clientes" id="clientes" name="cliente" onchange="imprimirOrdenes()">
               <option value="" selected="selected"> - selecciona -</option>
             </select>
           </div>
         </div>
 
-        <div class="contenedorInformacion">
-
-          <div class="itemInformacion categoria1">
-            <div class="parteIzquierdaitemInformacion">
-              <div class="info titulo">
-                <h2>Nmero de Orden: 2</h2>
-              </div>
-              <div class="tituloproceso">
-                <h3>En proceso</h3>
-              </div>
-              <div class="info descripcion">
-                <h3>Cliente: juanito</h3>
-                <h3>fecha: 02/20/2021</h3>
-              </div>
-            </div>
-
-            <div class="parteDerechaitemInformacion">
-              <div>
-                <a class="botonModificar" onclick=""><img class="imgModificar" src="../imagenes/lapiz.png" alt="Modificar" title="Modificar"></a>
-              </div>
-              <div>
-                <a class="botonEliminar" href="#" onclick=""><img class="imgEliminar" src="../imagenes/eliminar.png" alt="Eliminar" title="Eliminar"></a>
-              </div>
-            </div>
-            </div>
-          </div>
-          
+        <div class="contenedorInformacion" id="contenedorInformacion"> </div>
+        
         </div>
       </div>
     </div>
   </body>
   <script src="../js/menuResponsive.js" charset="utf-8"></script>
+  <script src="../js/ordenes.js" charset="utf-8"></script>
+
 </html>
