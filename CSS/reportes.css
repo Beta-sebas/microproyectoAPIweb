@@ -111,11 +111,16 @@
   .titulopage{
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-top: 10px;
-    
+  }
+
+  .titulopage .titulo{
+    background-color: rgb(125, 185, 241);
+    border-radius: 10px 10px 10px;
+    padding : 5px 20px;
   }
 
   .contenedorSecundario{
@@ -124,11 +129,81 @@
     display: flex;
     flex-direction: column;
   }
-  
-  .filtroInicial, .filtroFinal{
-    width: 50%;
+
+  .opcionesDeFiltro{
+    width: 90%;
+    margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    
+  }
+
+  .filtroInicial, .filtroFinal{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-bottom: 15px;
+    
+  }
+  
+  
+
+  .filtroInicial h3, .filtroFinal h3{
+    width: 100%;
+    font-size: 1.17em;
+  }
+  .filtroInicial input, .filtroFinal input{
+    width: 100%;
+    font-size: 16px;
+    padding: 6px;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 10px;
+  }
+
+  .desplegable{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .desplegable h3{
+    width: 100%;
+    font-size: 1.17em;
+  }
+  .desplegable select{
+    width: 100%;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 6px;
+    border: 1px solid rgb(197, 197, 197);
+    
+  }
+
+  .contenedorBotonConsultar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .botonConsultar{
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(125, 185, 241);
+    border-radius: 10px 10px 10px;
+    padding : 5px 20px;
+    border: none;
+    transition: 0.3s ease all;
+  }
+
+  .botonConsultar:hover{
+    background-color: rgb(172, 215, 255);
+    cursor: pointer;
   }
 
   @media(max-width: 600px){
@@ -179,6 +254,23 @@
   .enlaces a, .enlaces .aqui{
     width: auto;
     padding: 5px;
+  }
+
+  
+
+  .filtroInicial h3, .filtroFinal h3{
+    width: 30%;
+    
+  }
+  .filtroInicial input, .filtroFinal input{
+    width: 70%;
+  }
+
+  .desplegable h3{
+    width: 30%;
+  }
+  .desplegable select{
+    width: 70%;
   }
 
   .nav{

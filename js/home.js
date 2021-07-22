@@ -4,7 +4,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   var catalogoClientes = [];
   var catalogoProveedores = [];
   var catalogoCategoriasProductos = [];
-  var operacionesEntrada = [];
+  
 
   //----------------Creando clientes:------------------------------------------
   var cliente1 = {
@@ -80,7 +80,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     descripcion:"SmarTV de 49 pulgadas con base incluida y control inteligente",
     precioEntradas:1000000,
     precioSalidas:1200000,
-    unidades:10,
+    unidades:5,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
     cantidadMinimaDisponibleInventario:3,
@@ -95,7 +95,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     descripcion:"TV de 32 pulgadas HD",
     precioEntradas:600000,
     precioSalidas:800000,
-    unidades:2,
+    unidades:10,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
     cantidadMinimaDisponibleInventario:3,
@@ -110,7 +110,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     descripcion:"smartTV 42 pulgadas sonido envolvente",
     precioEntradas:900000,
     precioSalidas:1000000,
-    unidades:5,
+    unidades:7,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
     cantidadMinimaDisponibleInventario:3,
@@ -121,19 +121,19 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
   //Los celulares
   var celulares1 = {
     codigo:"0004",
-    nombre:"Xiamoi Redmi note 9",
+    nombre:"Xiaomi Redmi note 9",
     categoria:"Celulares",
     ubicacion:"vitrina",
-    descripcion:"Xiamoi Redmi note 9 64 gb almacenamiento, 2gb RAM",
+    descripcion:"Xiaomi Redmi note 9 64 gb almacenamiento, 2gb RAM",
     precioEntradas:1000000,
     precioSalidas:1200000,
-    unidades:3,
+    unidades:5,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
     cantidadMinimaDisponibleInventario:3,
     Imagen:"../imagenes/redminote9.png"
   };
-
+  
   var celulares2 = {
     codigo:"0005",
     nombre:"Samsung Galaxy S21",
@@ -142,7 +142,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     descripcion:"Una pantalla Dynamic AMOLED de 6,8 pulgadas con resolución WQHD+ y una tasa de refresco máxima de 120 hercios",
     precioEntradas:3000000,
     precioSalidas:3500000,
-    unidades:7,
+    unidades:6,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
     cantidadMinimaDisponibleInventario:3,
@@ -157,7 +157,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     descripcion:"Con su sistema Quad Camera con sensor de 64 MP, Almacenamiento interno de 128 GB, Memoria RAM: 4GB",
     precioEntradas:700000,
     precioSalidas:800000,
-    unidades:2,
+    unidades:5,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
     cantidadMinimaDisponibleInventario:3,
@@ -175,7 +175,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     descripcion:"(1TB de almacenamiento HDD, 8GB de RAM, Procesador intel core i5 5500 2GHZ, Tarjeta de video NVIDIA Gforce 920m",
     precioEntradas:1500000,
     precioSalidas:1700000,
-    unidades:6,
+    unidades:5,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
     cantidadMinimaDisponibleInventario:3,
@@ -190,14 +190,14 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     descripcion:"250GB de almacenamiento SDD, 12GB de RAM, Procesador AMD5, Raedon graphics",
     precioEntradas:1900000,
     precioSalidas:2100000,
-    unidades:3,
+    unidades:7,
     presentacion:"Caja",
     cantidadInicialDisponibleInventario:5,
     cantidadMinimaDisponibleInventario:3,
     Imagen:"../imagenes/acer.png"
   };
   //-------------
-
+  
   //Ahora lo que sigue es introducir estos objetos de productos, dentro de los arreglos internos de cada categoria, pero hay que recordar que cada categoria está almacenado en el arreglo "catalogoCategoriasProductos", lo que se muestra a continuación es una forma de buscar dentro del arreglo "catalogoCategoriasProductos" al objeto que cumpla la condición que se establezca, en este caso se evalua el nombre de la categoria.
 
   var categoriaEncontrada = catalogoCategoriasProductos.find(element => element.nombreCategoria=="Televisores");
@@ -215,8 +215,82 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
 
   //------------------------------------------------------------------------------------------
   //INICIALIZAR AQUÍ LA CLAVE VALOR PARA LAS OPERACIONES DE ENTRADA
+  if(localStorage.getItem("operacionesEntrada")==null){
+    let operacionesEntrada = [];
+    //COMPRA DE TELEVISORES
+    let compraFinal1={
+      numeroCompra:1,
+      proveedor:"Fernando Fernandez",
+      productos:[],
+      total:16600000,
+      fecha:"7/15/2021, 9:46:26 AM"
+    };
+    let compraIndividualTV1 = {
+      categoria:"Televisores",
+      producto:"SmartTV Samsung serie 3X",
+      cantidad:5
+    };
+    let compraIndividualTV2 = {
+      categoria:"Televisores",
+      producto:"TV LG Classic",
+      cantidad:10
+    };
+    let compraIndividualTV3 = {
+      categoria:"Televisores",
+      producto:"smartTV Hyundai 35jl",
+      cantidad:7
+    };
+    compraFinal1.productos.push(compraIndividualTV1,compraIndividualTV2,compraIndividualTV3);
+     
+    //COMPRA DE CELULARES
+    let compraFinal2={
+      numeroCompra:2,
+      proveedor:"Ernesto Hernandez",
+      productos:[],
+      total:26500000,
+      fecha:"7/16/2021, 9:46:26 AM"
+    };
+    let compraIndividualCel1 = {
+      categoria:"Celulares",
+      producto:"Xiaomi Redmi note 9 ",
+      cantidad:5
+    };
+    let compraIndividualCel2 = {
+      categoria:"Celulares",
+      producto:"Samsung Galaxy S21",
+      cantidad:6
+    };
+    let compraIndividualCel3 = {
+      categoria:"Celulares",
+      producto:"Motorola moto g9",
+      cantidad:5
+    };
+    compraFinal2.productos.push(compraIndividualCel1,compraIndividualCel2,compraIndividualCel3);
 
-
+    //COMPRA DE COMPUTADORES
+    let compraFinal3={
+      numeroCompra:3,
+      proveedor:"Ernesto Hernandez",
+      productos:[],
+      total:20800000,
+      fecha:"7/17/2021, 9:46:26 AM"
+    };
+    let compraIndividualPc1 = {
+      categoria:"Computadores",
+      producto:"Asus x455L",
+      cantidad:5
+    };
+    let compraIndividualPc2 = {
+      categoria:"Computadores",
+      producto:"Acer TY300",
+      cantidad:7
+    };
+    compraFinal3.productos.push(compraIndividualPc1,compraIndividualPc2);
+    
+    //METIENDO LAS COMPRAS EN OPERACIONES DE ENTRADA
+    operacionesEntrada.push(compraFinal1,compraFinal2,compraFinal3);
+    localStorage.setItem("operacionesEntrada", JSON.stringify(operacionesEntrada));
+  }
 
 }
 
