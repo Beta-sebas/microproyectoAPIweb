@@ -3,6 +3,10 @@ if (localStorage.getItem("operacionesSalida")==null) {
   let arregloVacio = [];
   localStorage.setItem("operacionesSalida", JSON.stringify(arregloVacio));
 }
+if (localStorage.getItem("redireccionPorModificacionDeOrden")==null) {
+  localStorage.setItem("redireccionPorModificacionDeOrden", "no");
+}
+
 let catalogoClientes = JSON.parse(localStorage.getItem("catalogoClientes"));
 let listaCategorias = document.getElementById("categorias");
 let listaProductos = document.getElementById("productos");
@@ -11,13 +15,23 @@ let metodoPago = document.getElementById("metodopago");
 let cajaCantidad = document.getElementById("cantidad");
 let arregloCompra = [];
 let total = 0;
-let actualizar= 1;
+let coincidenciaCliente= false;
 let numeroDeVentaActualizar = -1;
 
 
 document.addEventListener("DOMContentLoaded", function () {
+  let redireccionPorModificacionDeOrden = localStorage.getItem("redireccionPorModificacionDeOrden");
+  if (redireccionPorModificacionDeOrden != "no"){
+    console.log("Se abrió esta pagina con redirección: "+redireccionPorModificacionDeOrden);
     llenarClientes();
-
+    listaClientes.selectedIndex=parseInt(redireccionPorModificacionDeOrden);
+    verificarOrdenes();
+    localStorage.setItem("redireccionPorModificacionDeOrden", "no");
+    console.log("Se actualizó la redirección al valor: no");
+  }
+  else{
+    console.log("Se abrió esta pagina con redirección: "+redireccionPorModificacionDeOrden);
+    llenarClientes();
     let clienteEscogido = listaClientes.value;
     if(clienteEscogido==""){
         listaCategorias.disabled = true;
@@ -25,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
     else{
         listaCategorias.disabled = false;
     }
-
     let categoriaEscogida = listaCategorias.value;
     if(categoriaEscogida==""){
         listaProductos.disabled = true;
@@ -33,11 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
     else{
         listaProductos.disabled = false;
     }
+  }
 });
 
 function verificarOrdenes() {
   document.getElementById("contenedorListaCompras").innerHTML ="";
-  let bandera=1;
   arregloCompra=[];
   let txtCliente = listaClientes.options[listaClientes.selectedIndex].text;
   let ordenesTrabajo = JSON.parse(localStorage.getItem("operacionesSalida"));
@@ -47,35 +60,28 @@ function verificarOrdenes() {
       ordenesEnProceso.push(ordenActual);
     }
   });
-  localStorage.setItem("pruebadeordenes", JSON.stringify(ordenesEnProceso));
- 
-  ordenesEnProceso.forEach((item, i) => {
-    console.log(item.cliente);
-    console.log(txtCliente);
-    if (item.cliente==txtCliente) {
-    bandera=2;
-    actualizar = 2;
-    numeroDeVentaActualizar = item.numeroVenta;
-    }
-    else {
-    bandera=1;
-    actualizar = 1;
-    }
-  });
-    console.log(bandera);
-
-  if (bandera==1) {
-    console.log("no en proceso");
+  localStorage.setItem("pruebadeordenesProceso", JSON.stringify(ordenesEnProceso));
+  if(ordenesEnProceso.length==0){
     llenarCategorias();
+    console.log("no hay ordenes en proceso");
   }
-  else {
-    let ordenEncontrada = ordenesEnProceso.find(element=> element.cliente==txtCliente);
-    arregloCompra = ordenEncontrada.productos;
-    console.log("en proceso");
-    imprimirProductosCompra();
-    llenarCategorias();
-  }
+  else{
+    let ordenEnProcesoEncontrada = ordenesEnProceso.find(element => element.cliente==txtCliente);  
+    if(ordenEnProcesoEncontrada==undefined){
+      coincidenciaCliente = false;
+      llenarCategorias();
 
+      console.log("Si hay ordenes en proceso, pero no se encontró coincidencia con el cliente: "+txtCliente);
+    }
+    else{
+      console.log("Si se encontró orden en proceso del cliente: "+txtCliente);
+      coincidenciaCliente = true;
+      numeroDeVentaActualizar = ordenEnProcesoEncontrada.numeroVenta;
+      arregloCompra = ordenEnProcesoEncontrada.productos;
+      imprimirProductosCompra();
+      llenarCategorias();
+    } 
+  }
 }
 
 function llenarCategorias() {
@@ -313,13 +319,18 @@ function operacionSalida(){
   ventaFinal.estado = "Terminado";
   let operacionesSalida = JSON.parse(localStorage.getItem("operacionesSalida"));
   
-  if (actualizar==2){
+  if (coincidenciaCliente==true){
     //modificar la posicion de numeroDeVentaActualizar en lo del localStorage
     ventaFinal.numeroVenta = numeroDeVentaActualizar;
     operacionesSalida[numeroDeVentaActualizar-1]=ventaFinal;
   }
   else{
-    ventaFinal.numeroVenta = operacionesSalida.length+1;
+    if(operacionesSalida.length==0){
+      ventaFinal.numeroVenta = 1;
+    }
+    else{
+      ventaFinal.numeroVenta = operacionesSalida[operacionesSalida.length-1].numeroVenta+1;
+    }
     operacionesSalida.push(ventaFinal);
   }
   
@@ -364,17 +375,21 @@ function ordenEnproceso(){
   ventaFinal.estado = "EnProceso";
   let operacionesSalida = JSON.parse(localStorage.getItem("operacionesSalida"));
   
-  if (actualizar==2){
+  if (coincidenciaCliente==true){
     //modificar la posicion de numeroDeVentaActualizar en lo del localStorage
     ventaFinal.numeroVenta = numeroDeVentaActualizar;
     operacionesSalida[numeroDeVentaActualizar-1]=ventaFinal;
   }
   else{
-      ventaFinal.numeroVenta = operacionesSalida.length+1;
-    
-    
+    if(operacionesSalida.length==0){
+      ventaFinal.numeroVenta = 1;
+    }
+    else{
+      ventaFinal.numeroVenta = operacionesSalida[operacionesSalida.length-1].numeroVenta+1;
+    }
     operacionesSalida.push(ventaFinal);
   }
   localStorage.setItem("operacionesSalida", JSON.stringify(operacionesSalida));
+  window.location.href = "home.html";
 
 }
