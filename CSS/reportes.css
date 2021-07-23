@@ -117,7 +117,7 @@
     margin-top: 10px;
   }
 
-  .titulopage .titulo{
+  .titulopage .titulo.pagina{
     background-color: rgb(125, 185, 241);
     border-radius: 10px 10px 10px;
     padding : 5px 20px;
@@ -148,8 +148,6 @@
     
   }
   
-  
-
   .filtroInicial h3, .filtroFinal h3{
     width: 100%;
     font-size: 1.17em;
@@ -206,6 +204,111 @@
     cursor: pointer;
   }
 
+  .contenedorInformacion{
+    /*border: 1px solid black;*/
+    background-color: rgb(64, 64, 64);
+    flex-direction: column;
+    font-size: 13px;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 20px 0px;
+  }
+
+  .tituloContenedorInformacion{
+    color:white;
+  }
+
+  .itemInformacion{
+    display: flex;
+    flex-flow: row wrap;
+    background-color: rgb(169, 203, 234);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .parteIzquierdaitemInformacion{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .titulo.tabla{
+    width: 100%;
+    text-align: left;
+    padding-left: 4px;
+    color: black;
+    
+  }
+  
+  .descripcion{
+    width: 100%;
+  }
+  
+  ul{
+    list-style-type: circle;
+    margin-left: 20px;
+  }
+  
+  
+  .cantidad{
+    width: 50%;
+    padding-right: 4px;
+    text-align: right;
+    border-left: 1px solid rgb(184, 184, 184);
+  }
+  
+  .descripcion{
+    width: 100%;
+  }
+
+  .parteDerecha{
+    display: flex;
+    flex-flow: column wrap;
+    text-align:center;
+    justify-content: space-between;
+    align-content: space-between;
+    padding: 4px;
+  }
+  
+  .parteDerecha h3, .parteIzquierda h3{
+    margin-bottom: 20px;
+  }
+  
+  table{
+    background-color: rgb(169, 203, 234);
+    width: 100%;
+    font-size: 12px;
+    font-weight: 300;
+    border-radius: 0px 0px 10px 10px;
+    padding: 5px;
+    
+    border-collapse: separate;
+    border-spacing: 2px 2px;
+  }
+
+  table caption{
+    color: black;
+    font-size: 20px;
+    padding: 10px 5px;
+    background-color: rgb(169, 203, 234);
+    border-radius: 10px 10px 0px 0px;
+  }
+  
+  tr, th, td{
+    margin: 5px;
+    
+  }
+  
+  td{
+    
+    background-color: rgb(201, 229, 255);
+    text-align: center;
+    border-radius: 5px;
+    padding: 3px;
+  }
+
   @media(max-width: 600px){
     .ocultar-peq{
         display: none;
@@ -256,8 +359,6 @@
     padding: 5px;
   }
 
-  
-
   .filtroInicial h3, .filtroFinal h3{
     width: 30%;
     
@@ -271,6 +372,12 @@
   }
   .desplegable select{
     width: 70%;
+  }
+
+  table{
+    font-size: 16px;
+    font-weight: bold;
+    border-spacing: 10px 10px;
   }
 
   .nav{
