@@ -59,7 +59,7 @@
             <div class="desplegable">
               <h3>Seleccione el reporte:</h3>
               <select class="reporte" id="reporte" name="reporte">
-                <option value="" selected="selected"> - Seleccione el tipo de reporte -</option>
+                <option value="0" selected="selected"> - Seleccione el tipo de reporte -</option>
                 <option value="1">Reporte inventario</option>
                 <option value="2">Reporte ventas y compras totales</option>
                 <option value="3">Reporte Ordenes de trabajo</option>
@@ -67,86 +67,18 @@
             </div>
 
             <div class="contenedorBotonConsultar">
-              <input class="botonConsultar" type="button" onclick="prueba()" name="button" value="Consultar">
+              <input class="botonConsultar" type="button" onclick="buscarPorFechas()" name="button" value="Consultar">
             </div>
 
           </div>
 
         
 
-        <div class="contenedorInformacion">
-          <h2 class="tituloContenedorInformacion">Operaciones de Entrada</h2>
-          <div class="itemInformacion">
-
-            <div class="parteIzquierdaitemInformacion">
-              <div class="titulo">
-                <h2>${clienteActual.Producto} </h2>
-              </div>
-              <div class="descripcion">
-                <ul>
-                  <li>Cantidad: ${clienteActual.direccion}</li>
-                  <li>Operacion: ${clienteActual.email}</li>
-                  <li>Fecha: ${clienteActual.telefono}</li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="itemInformacion">
-
-            <div class="parteIzquierdaitemInformacion">
-              <div class="titulo tabla">
-                <h2>${clienteActual.Producto} </h2>
-              </div>
-              <div class="descripcion">
-                <ul>
-                  <li>Cantidad: ${clienteActual.direccion}</li>
-                  <li>Operacion: ${clienteActual.email}</li>
-                  <li>Fecha: ${clienteActual.telefono}</li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
+        <div class="contenedorInformacion" id="contenedorInformacion1">
 
         </div>
 
-        <div class="contenedorInformacion">
-          <h2 class="tituloContenedorInformacion">Operaciones de Salida</h2>
-          <div class="itemInformacion">
-
-            <div class="parteIzquierdaitemInformacion">
-              <div class="titulo tabla">
-                <h2>${clienteActual.Producto} </h2>
-              </div>
-              <div class="descripcion">
-                <ul>
-                  <li>Cantidad: ${clienteActual.direccion}</li>
-                  <li>Operacion: ${clienteActual.email}</li>
-                  <li>Fecha: ${clienteActual.telefono}</li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="itemInformacion">
-
-            <div class="parteIzquierdaitemInformacion">
-              <div class="titulo tabla">
-                <h2>${clienteActual.Producto} </h2>
-              </div>
-              <div class="descripcion">
-                <ul>
-                  <li>Cantidad: ${clienteActual.direccion}</li>
-                  <li>Operacion: ${clienteActual.email}</li>
-                  <li>Fecha: ${clienteActual.telefono}</li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
+        <div class="contenedorInformacion" id="contenedorInformacion2">
 
         </div>
 

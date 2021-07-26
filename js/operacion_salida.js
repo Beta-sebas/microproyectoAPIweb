@@ -292,7 +292,9 @@ function eliminarProducto (indice){
 
 function operacionSalida(){
   let d = new Date();
-  let n = d.toLocaleString();
+  let n = d.valueOf();
+  //let n = Date.parse(d);
+  //let n = d.toLocaleString();
   let ventaFinal = {
     numeroVenta:0,
     cliente:"",
@@ -348,7 +350,9 @@ function operacionSalida(){
 
 function ordenEnproceso(){
   let d = new Date();
-  let n = d.toLocaleString();
+  let n = d.valueOf();
+  //let n = Date.parse(d);
+  //let n = d.toLocaleString();
   let ventaFinal = {
     numeroVenta:0,
     cliente:"",

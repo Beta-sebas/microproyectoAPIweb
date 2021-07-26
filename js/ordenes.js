@@ -12,6 +12,7 @@ function llenarClientes(){
     listaClientes.innerHTML="";
     listaClientes.innerHTML=`<option value="" selected="selected"> - selecciona -</option>`;
     catalogoClientes.forEach( (clienteActual, indiceActual) => {
+        
         listaClientes.innerHTML+=
         `
         <option value="${indiceActual}">${clienteActual.nombre} ${clienteActual.apellido}</option>
@@ -38,6 +39,8 @@ function imprimirOrdenes(){
     }
     else{
         operacionesSalida.forEach((ordenActual, indiceActual) => {
+            
+            let fechaImprimible = new Date(ordenActual.fecha).toLocaleString();
             if(ordenActual.cliente==txtCliente){
                 txt+= 
                 `
@@ -50,7 +53,7 @@ function imprimirOrdenes(){
                             <ul>
                             <li>Estado: ${ordenActual.estado}</li>
                             <li>Cliente: ${ordenActual.cliente}</li>
-                            <li>fecha: ${ordenActual.fecha}</li>
+                            <li>fecha: ${fechaImprimible}</li>
                             </ul>
                         </div>
                     </div>

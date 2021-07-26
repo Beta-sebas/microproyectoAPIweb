@@ -167,7 +167,9 @@ function quitarAlertaProveedor(){
 
 function operacionEntrada(){
   let d = new Date();
-  let n = d.toLocaleString();
+  let n = d.valueOf();
+  //let n = Date.parse(d);
+  //let n = d.toLocaleString();
   let compraFinal = {
     numeroCompra:0,
     proveedor:"",

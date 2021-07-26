@@ -223,7 +223,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
       proveedor:"Fernando Fernandez",
       productos:[],
       total:16600000,
-      fecha:"7/15/2021, 9:46:26 AM"
+      fecha:1626359134000
     };
     let compraIndividualTV1 = {
       categoria:"Televisores",
@@ -248,7 +248,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
       proveedor:"Ernesto Hernandez",
       productos:[],
       total:26500000,
-      fecha:"7/16/2021, 9:46:26 AM"
+      fecha:1626446786000
     };
     let compraIndividualCel1 = {
       categoria:"Celulares",
@@ -273,7 +273,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
       proveedor:"Ernesto Hernandez",
       productos:[],
       total:20800000,
-      fecha:"7/17/2021, 9:46:26 AM"
+      fecha:1626535014000
     };
     let compraIndividualPc1 = {
       categoria:"Computadores",
