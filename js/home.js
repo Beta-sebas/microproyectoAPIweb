@@ -252,7 +252,7 @@ if(localStorage.getItem('catalogoCategoriasProductos')===null){
     };
     let compraIndividualCel1 = {
       categoria:"Celulares",
-      producto:"Xiaomi Redmi note 9 ",
+      producto:"Xiaomi Redmi note 9",
       cantidad:5
     };
     let compraIndividualCel2 = {
