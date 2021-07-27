@@ -19,11 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
       let operacionesEntrada = JSON.parse(localStorage.getItem("operacionesEntrada"));
       let catalogoCategoriasProductos = JSON.parse(localStorage.getItem("catalogoCategoriasProductos"));
       let reporteEscogido = listaReportes.value;
-      console.log(reporteEscogido);
       
       switch (reporteEscogido) {
         case "1": //--------------------------------------------reporte de inventario----------------------------
-        
           let productosEntrada = [];
           let productosSalida = [];
           let productoAuxiliar = {
@@ -46,9 +44,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 productosEntrada.push(productoAuxiliar);
               });   
             }
-            else{
-              console.log("No hubo operaciones de entrada en ese rango de fechas");
-            } 
           });  
           imprimirOperacionesEntrada(productosEntrada);
 
@@ -68,10 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
                   productosSalida.push(productoAuxiliar);
                 }); 
               }
-            }
-            else{
-              console.log("No hubo operaciones de salida en ese rango de fechas");
-            }
+            }           
           });
           imprimirOperacionesSalida(productosSalida);
           break; //----------------------------------------------------------------------------------------------
@@ -153,13 +145,12 @@ document.addEventListener("DOMContentLoaded", function () {
               arregloOrdenes.push(operacionSalidaActual);
             }
           });
-          console.log(arregloOrdenes);
           imprimirOrdenes(arregloOrdenes);
           break;
         
 
         default : //cuando no se ha escogido ninguno de los 3 reportes
-          console.log("NO ha seleccionado reporte");
+          imprimirError();
           
       }
   }
@@ -167,38 +158,24 @@ document.addEventListener("DOMContentLoaded", function () {
   function active(contenedor) {
     switch (contenedor) {
       case "1":
-        if (contenedor1.className.indexOf("active") == -1) {
-          contenedor1.className += " active";
-          contenedor2.className += " active";
-          } else {
-          contenedor1.className = contenedor1.className.replace(" active", "");
-          contenedor2.className = contenedor2.className.replace(" active", "");
-          }
-          contenedor3.className = contenedor3.className.replace(" active", "");
-          contenedor4.className = contenedor4.className.replace(" active", "");
-          
+        contenedor1.classList.add("active");
+        contenedor2.classList.add("active");
+        contenedor3.classList.remove("active");
+        contenedor4.classList.remove("active");
         break;
 
       case "2":
-        if (contenedor3.className.indexOf("active") == -1) {
-          contenedor3.className += " active";
-          } else {
-          contenedor3.className = contenedor3.className.replace(" active", "");
-          }
-          contenedor1.className = contenedor1.className.replace(" active", "");
-          contenedor2.className = contenedor2.className.replace(" active", "");
-          contenedor4.className = contenedor4.className.replace(" active", "");
+        contenedor1.classList.remove("active");
+        contenedor2.classList.remove("active");
+        contenedor3.classList.add("active");
+        contenedor4.classList.remove("active");
         break;
 
       case "3":
-        if (contenedor4.className.indexOf("active") == -1) {
-          contenedor4.className += " active";
-          } else {
-          contenedor4.className = contenedor4.className.replace(" active", "");
-          }
-          contenedor1.className = contenedor1.className.replace(" active", "");
-          contenedor2.className = contenedor2.className.replace(" active", "");
-          contenedor3.className = contenedor3.className.replace(" active", "");
+        contenedor1.classList.remove("active");
+        contenedor2.classList.remove("active");
+        contenedor3.classList.remove("active");
+        contenedor4.classList.add("active");
         break;
     
       default:
@@ -209,58 +186,102 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
  
+  function imprimirError(){
+    contenedor1.classList.add("active");
+    contenedor2.classList.remove("active");
+    contenedor3.classList.remove("active");
+    contenedor4.classList.remove("active");
+
+    contenedor1.innerHTML="";
+      contenedor1.innerHTML=
+      `
+      <h2 class="tituloContenedorInformacion">No ha seleccionado un tipo de reporte</h2>
+      `;
+
+  }
 
   function imprimirOperacionesEntrada (productosEntrada){
     active("1");
-    contenedor1.innerHTML="";
-    contenedor1.innerHTML=`<h2 class="tituloContenedorInformacion">Operaciones de Entrada</h2>`; 
-    productosEntrada.forEach((productoActual, indiceActual) => {
-      let n = new Date(productoActual.fecha).toLocaleString();
-      contenedor1.innerHTML+=
+    if(productosEntrada.length==0){
+      contenedor1.innerHTML="";
+      contenedor1.innerHTML=
       `
+      <h2 class="tituloContenedorInformacion">Operaciones de Entrada</h2>
       <div class="itemInformacion">
-
-            <div class="parteIzquierdaitemInformacion">
-              <div class="titulo">
-                <h2>${productoActual.nombre} </h2>
-              </div>
-              <div class="descripcion">
-                <ul>
-                  <li>Cantidad: ${productoActual.cantidad}</li>
-                  <li>Fecha: ${n}</li>
-                </ul>
-              </div>
-            </div>
-
-      </div>
+        <div class="parteIzquierdaitemInformacion">
+          <div class="titulo">
+            <h2>No hubo Operaciones de Entrada en el rango de fechas seleccionado </h2>
+          </div>
+        </div>
+      </div>  
       `;
-    });
+    }
+    else{
+      contenedor1.innerHTML="";
+      contenedor1.innerHTML=`<h2 class="tituloContenedorInformacion">Operaciones de Entrada</h2>`; 
+      productosEntrada.forEach((productoActual, indiceActual) => {
+        let n = new Date(productoActual.fecha).toLocaleString();
+        contenedor1.innerHTML+=
+        `
+        <div class="itemInformacion">
+
+              <div class="parteIzquierdaitemInformacion">
+                <div class="titulo">
+                  <h2>${productoActual.nombre} </h2>
+                </div>
+                <div class="descripcion">
+                  <ul>
+                    <li>Cantidad: ${productoActual.cantidad}</li>
+                    <li>Fecha: ${n}</li>
+                  </ul>
+                </div>
+              </div>
+
+        </div>
+        `;
+      });
+    }
   }
-
   function imprimirOperacionesSalida (productosSalida){
-    contenedor2.innerHTML="";
-    contenedor2.innerHTML=`<h2 class="tituloContenedorInformacion">Operaciones de Salida</h2>`; 
-    productosSalida.forEach((productoActual, indiceActual) => {
-      let n = new Date(productoActual.fecha).toLocaleString();
-      contenedor2.innerHTML+=
+    if(productosSalida.length==0){
+      contenedor2.innerHTML="";
+      contenedor2.innerHTML=
       `
+      <h2 class="tituloContenedorInformacion">Operaciones de Salida</h2>
       <div class="itemInformacion">
-
-            <div class="parteIzquierdaitemInformacion">
-              <div class="titulo">
-                <h2>${productoActual.nombre} </h2>
-              </div>
-              <div class="descripcion">
-                <ul>
-                  <li>Cantidad: ${productoActual.cantidad}</li>
-                  <li>Fecha: ${n}</li>
-                </ul>
-              </div>
-            </div>
-
+        <div class="parteIzquierdaitemInformacion">
+          <div class="titulo">
+            <h2>No hubo Operaciones de Salida en el rango de fechas seleccionado </h2>
+          </div>
+        </div>
       </div>
-      `;
-    });
+      `; 
+    }
+    else{
+      contenedor2.innerHTML="";
+      contenedor2.innerHTML=`<h2 class="tituloContenedorInformacion">Operaciones de Salida</h2>`; 
+      productosSalida.forEach((productoActual, indiceActual) => {
+        let n = new Date(productoActual.fecha).toLocaleString();
+        contenedor2.innerHTML+=
+        `
+        <div class="itemInformacion">
+
+              <div class="parteIzquierdaitemInformacion">
+                <div class="titulo">
+                  <h2>${productoActual.nombre} </h2>
+                </div>
+                <div class="descripcion">
+                  <ul>
+                    <li>Cantidad: ${productoActual.cantidad}</li>
+                    <li>Fecha: ${n}</li>
+                  </ul>
+                </div>
+              </div>
+
+        </div>
+        `;
+      });
+    }
   }
 
   function imprimirComprasVentas (totalCompraVenta) {
@@ -311,26 +332,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function imprimirOrdenes (ordenes) {
     active("3");
-    contenedor4.innerHTML="";
-    contenedor4.innerHTML=`<h2 class="tituloContenedorInformacion">Ordenes</h2>`;
-    ordenes.forEach((ordenActual, indiceActual) => {
-      let n = new Date(ordenActual.fecha).toLocaleString();
-      contenedor4.innerHTML+=
+    if(ordenes.length==0){
+      contenedor4.innerHTML="";
+      contenedor4.innerHTML=
       `
-          <div class="itemInformacion">
-            <div class="parteIzquierdaitemInformacion">
-              <div class="titulo">
-                <h2>Orden: ${ordenActual.numeroVenta}</h2>
-              </div>
-              <div class="descripcion">
-                <h3>Estado: ${ordenActual.estado}</h3>
-                <h3>Cliente: ${ordenActual.cliente}</h3>
-                <h3>fecha: ${n}</h3>
+      <h2 class="tituloContenedorInformacion">Ordenes</h2>
+      <div class="itemInformacion">
+        <div class="parteIzquierdaitemInformacion">
+          <div class="titulo">
+            <h2>No hubo Ordenes de Trabajo en el rango de fechas seleccionado</h2>
+          </div>
+        </div>
+      </div>
+      `;
+    }
+    else{
+      contenedor4.innerHTML="";
+      contenedor4.innerHTML=`<h2 class="tituloContenedorInformacion">Ordenes</h2>`;
+      ordenes.forEach((ordenActual, indiceActual) => {
+        let n = new Date(ordenActual.fecha).toLocaleString();
+        contenedor4.innerHTML+=
+        `
+            <div class="itemInformacion">
+              <div class="parteIzquierdaitemInformacion">
+                <div class="titulo">
+                  <h2>Orden: ${ordenActual.numeroVenta}</h2>
+                </div>
+                <div class="descripcion">
+                  <h3>Estado: ${ordenActual.estado}</h3>
+                  <h3>Cliente: ${ordenActual.cliente}</h3>
+                  <h3>fecha: ${n}</h3>
+                </div>
               </div>
             </div>
-          </div>
-      `;
-    }); 
+        `;
+      }); 
+    }
   }
 
   

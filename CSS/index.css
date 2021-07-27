@@ -88,6 +88,8 @@ fieldset{
 
   width: 100%;
   border-radius: 5px;
+  display: flex;
+  flex-flow: row wrap;
 }
 .login form legend {
   font-size: 20px;
@@ -96,19 +98,30 @@ fieldset{
 
 .barras{
   width: 90%;
-  font-size: 16px;
+  font-size: 13px;
+  padding:8px;
+  border-radius: 10px;
+  border:none;
+  margin:5px;
 }
 .boton{
   width: 40%;
-  font-size: 15px;
-  background-color: rgb(201, 201, 201);
+  font-size: 13px;
+  padding:8px;
+  font-weight: bold;
+  background-color: rgb(55, 150, 47);
   text-decoration: none;
-  color: rgb(62, 62, 62);
-  border-radius: 5px;
+  color: rgb(238, 238, 238);
+  border-radius: 15px;
+  border: none;
+  margin: auto;
+  margin-top:5px;
+  margin-bottom: 5px;
+  transition: 0.3s ease all;
 }
 
 .boton:hover{
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(116, 214, 107);
 
 }
 
@@ -155,8 +168,11 @@ img {
     width: 50%;
   }
   .boton{
-    width: 22%;
-    font-size: 10px;
+    width: 124px;
+    font-size: 13px;
+    padding:8px;
+
+    margin-left: 10px;
   }
   .login span {
     font-size: 9px;
@@ -164,6 +180,7 @@ img {
   .barras{
     width: 33%;
     font-size: 13px;
+    padding:8px;
   }
   .login {order: 0;}
   .logo{order: 1;}
