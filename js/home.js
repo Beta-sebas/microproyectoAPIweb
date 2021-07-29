@@ -408,7 +408,7 @@ function verificarAbastecimiento(){
   let txt="";
   catalogoCategoriasProductos.forEach((categoriaActual, indiceActual) => {
     for (const x in categoriaActual.productos) {
-      //Si unidades <= 3
+      //Si unidades <= cantidad minima
       if (categoriaActual.productos[x].unidades<=categoriaActual.productos[x].cantidadMinimaDisponibleInventario) {
 
          txt+="<tr>"+"<td>"+categoriaActual.productos[x].nombre+"</td>"+"<td>"+categoriaActual.productos[x].unidades+"</td>"+"<td>"+categoriaActual.productos[x].cantidadMinimaDisponibleInventario+"</td>"+"</tr>";
@@ -416,6 +416,9 @@ function verificarAbastecimiento(){
       }
     }
   });
+  if(txt==""){
+    txt=`<tr><td colspan="3">No hay productos escasos.</td></tr>`;
+  }
   document.getElementById('tabla1').innerHTML=" ";
   document.getElementById('tabla1').innerHTML=
   `<table>
