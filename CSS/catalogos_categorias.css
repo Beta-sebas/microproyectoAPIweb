@@ -440,12 +440,24 @@ ul{
   margin-bottom: 10px;
 }
 
-.popup form .contenedor-inputs input{
+.popup form .contenedor-inputs .inputTexto{
   width: 100%;
   margin-bottom: 20px;
   height: 52px;
   border-radius: 10px;
   border: 1px solid #BBB;
+  padding-left: 5px;
+  font-family: sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.popup form .contenedor-inputs .inputImagen{
+  width: 100%;
+  margin-bottom: 20px;
+  height: 52px;
+  border-radius: 10px;
+  
   padding-left: 5px;
   font-family: sans-serif;
   font-size: 1em;

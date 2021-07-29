@@ -195,6 +195,7 @@ function abrirPopupAgregarProducto(indiceCategoriaActual) {
 function cerrarPopupProducto(){
   overlayModificarProducto.classList.remove("active");
   popupModificarProducto.classList.remove("active");
+  
 }
 
 function eliminarProducto(indiceCategoriaActual, indiceProductoActual){
@@ -216,6 +217,7 @@ function verificarAccionProducto(){
 function agregarImagen(){
   let selector = document.getElementById("selectorImagen").files; // selecciona la lista de objetos del input
   document.getElementById("imagen").value="../imagenes/"+selector[0].name;
+  document.getElementById("imgProducto").src="../imagenes/"+selector[0].name;
   
 }
 
