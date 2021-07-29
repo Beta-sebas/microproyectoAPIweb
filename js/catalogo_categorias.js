@@ -213,6 +213,11 @@ function verificarAccionProducto(){
   }
 }
 
+function agregarImagen(){
+  let selector = document.getElementById("selectorImagen").files; // selecciona la lista de objetos del input
+  document.getElementById("imagen").value="../imagenes/"+selector[0].name;
+  
+}
 
 function agregarProducto(){
   var catalogoCategoriasProductos = JSON.parse(localStorage.getItem("catalogoCategoriasProductos"));
@@ -232,7 +237,7 @@ function agregarProducto(){
   };
 
 
-  if((document.getElementById("presentacion").value=="")||(document.getElementById("codigo").value=="")||(document.getElementById("nombre").value=="")||(document.getElementById("categoria").value=="")||(document.getElementById("ubicacion").value=="")||(document.getElementById("descripcion").value=="")||(document.getElementById("precioEntradas").value=="")||(document.getElementById("precioSalidas").value=="")||(document.getElementById("unidades").value=="")||(document.getElementById("cantidadInicialDisponibleInventario").value=="")||(document.getElementById("cantidadMinimaDisponibleInventario").value=="")){
+  if((document.getElementById("presentacion").value=="")||(document.getElementById("codigo").value=="")||(document.getElementById("nombre").value=="")||(document.getElementById("categoria").value=="")||(document.getElementById("ubicacion").value=="")||(document.getElementById("descripcion").value=="")||(document.getElementById("precioEntradas").value=="")||(document.getElementById("precioSalidas").value=="")||(document.getElementById("unidades").value=="")||(document.getElementById("cantidadInicialDisponibleInventario").value=="")||(document.getElementById("cantidadMinimaDisponibleInventario").value=="")||(document.getElementById("imagen").value=="")){
     return false;
   }
 
@@ -247,8 +252,7 @@ function agregarProducto(){
   productoNuevo.presentacion =document.getElementById("presentacion").value;
   productoNuevo.cantidadInicialDisponibleInventario =parseInt(document.getElementById("cantidadInicialDisponibleInventario").value,10);
   productoNuevo.cantidadMinimaDisponibleInventario =parseInt(document.getElementById("cantidadMinimaDisponibleInventario").value,10);
-  let imagen = document.getElementById("imagen").value;
-  productoNuevo.Imagen ="../imagenes/"+imagen+".png";
+  productoNuevo.Imagen = document.getElementById("imagen").value;
 
 
 
@@ -264,7 +268,7 @@ function modificarProducto(){
   let indiceParaModificarCategoria = indiceParaModificar[0];
   let indiceParaModificarProductos = indiceParaModificar[2];
 
-  if((document.getElementById("codigo").value=="")||(document.getElementById("nombre").value=="")||(document.getElementById("categoria").value=="")||(document.getElementById("ubicacion").value=="")||(document.getElementById("descripcion").value=="")||(document.getElementById("precioEntradas").value=="")||(document.getElementById("precioSalidas").value=="")||(document.getElementById("unidades").value=="")||(document.getElementById("cantidadInicialDisponibleInventario").value=="")||(document.getElementById("cantidadMinimaDisponibleInventario").value=="")){
+  if((document.getElementById("codigo").value=="")||(document.getElementById("nombre").value=="")||(document.getElementById("categoria").value=="")||(document.getElementById("ubicacion").value=="")||(document.getElementById("descripcion").value=="")||(document.getElementById("precioEntradas").value=="")||(document.getElementById("precioSalidas").value=="")||(document.getElementById("unidades").value=="")||(document.getElementById("cantidadInicialDisponibleInventario").value=="")||(document.getElementById("cantidadMinimaDisponibleInventario").value=="")||(document.getElementById("imagen").value=="")){
     return false;
   }
 
@@ -279,7 +283,7 @@ function modificarProducto(){
   catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].presentacion = document.getElementById("presentacion").value;
   catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].cantidadInicialDisponibleInventario = parseInt(document.getElementById("cantidadInicialDisponibleInventario").value,10);
   catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].cantidadMinimaDisponibleInventario = parseInt(document.getElementById("cantidadMinimaDisponibleInventario").value,10);
-  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].Imagen = document.getElementById("imagen").value;
+  catalogoCategoriasProductos[indiceParaModificarCategoria].productos[indiceParaModificarProductos].Imagen =document.getElementById("imagen").value;
   localStorage.setItem("catalogoCategoriasProductos", JSON.stringify(catalogoCategoriasProductos));
 
   return true;

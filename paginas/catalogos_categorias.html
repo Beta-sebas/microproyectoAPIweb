@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../CSS/catalogos_categorias.css">
   <!--<link rel="shortcut icon" type="image/x-icon" href="imagenes\favicon.ico">-->
   <!-- <link rel="shortcut icon" href="http://www.wikipedia.org/favicon.ico" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   </head>
   <body>
     <div class="contenedor">
@@ -84,7 +85,7 @@
         <div class="popup mod-productos" id="popup-mod-productos">
           <a onclick="cerrarPopupProducto()" class="cerrar-popup" title="Cerrar" id="cerrar-popupProducto"><i class="fa fa-times"></i></a>
           <h2>Ingresa los datos del Producto:</h2>
-          <form action="catalogos_categorias.html" onsubmit="return verificarAccionProducto()" method="POST">
+          <form action="catalogos_categorias.html" onsubmit="return verificarAccionProducto()" method="POST" enctype="multipart/form-data" >
             <div class="contenedor-inputs">
               <h3>Codigo:</h3>
               <input type="text" value="" placeholder="codigo" id="codigo" class="inputTexto" required>
@@ -112,7 +113,8 @@
               <div class="imagenProducto">
                   <img id="imgProducto" src="" alt="Imagen Producto" title="Imagen Producto" >
               </div>
-              <input type="text" value="" placeholder="Nombre De La Imagen del producto" id="imagen" class="inputTexto" >
+              <input type="file" onchange="agregarImagen()" value=""  id="selectorImagen" class="inputTexto" accept="image/png, .jpeg, .jpg, image/gif" >
+              <input  type="text" value="" placeholder="Seleccione La Imagen del producto" id="imagen" class="inputTexto" readonly required >
             </div>
             <div class="contenedor-boton">
               <input type="submit" value=""  class="btn-submit" id="btn-submit-mod-producto">
