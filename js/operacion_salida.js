@@ -137,10 +137,17 @@ function llenarClientes(){
 
 function descargarCotizacion(){
   const element = document.getElementById("contenedorListaCompras");
-  //html2pdf()
-  //.from(element)
-  //.save("cotizacion");
+   
+   var ventanaImpresion = window.open(' ', 'popUp');
+   ventanaImpresion.document.write(element.innerHTML);
+  //  html2pdf()
+  //  .from(element)
+  //  .save("cotizacion");
+    ventanaImpresion.document.close();
+    ventanaImpresion.print();
+    ventanaImpresion.close();
   ordenEnproceso();
+  
 }
 
 
